@@ -1,14 +1,14 @@
 # GameHaven
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Django](https://img.shields.io/badge/Django-5.2.3-green)
-![Angular](https://img.shields.io/badge/Angular-15-red)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
-![HTML](https://img.shields.io/badge/HTML-5-orange)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-![Sass](https://img.shields.io/badge/Sass-1.70-pink)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
-![Git](https://img.shields.io/badge/Git-v2.45-orange)
+![Python](https://img.shields.io/badge/Python-3.12.3-blue?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.2.3-green?logo=django&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%23007ACC.svg?logo=postgresql&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/Git-%23F05032.svg?logo=git&logoColor=white)
 
 ---
 
