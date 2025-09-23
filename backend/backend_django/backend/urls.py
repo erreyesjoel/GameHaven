@@ -21,4 +21,5 @@ from . import views # import del views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ejemplo/', views.ejemplo_template, name='ejemplo_template'), # nuestro template
+    path('', views.login_template, name='login_template'), # template de login, sera la raiz del sitio
 ]
