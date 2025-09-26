@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/* en sass todas las reglas @use y @import de scss deben ir antes de cualquier otra regla
+incluyendo el @import url de css */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+body, .login-container {
+  font-family: "Montserrat", sans-serif;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -99,4 +106,4 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=main.css.map */

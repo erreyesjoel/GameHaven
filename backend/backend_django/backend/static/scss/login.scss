@@ -1,12 +1,101 @@
 // Estilos de ejemplo para el login
 $color-principal: #3498db;
+$color-bg: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
+$color-shadow: rgba(52, 152, 219, 0.15);
 
 body {
-  background: #f4f4f4;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
+.login-bg {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Sin fondo aquí */
+}
+
+.login-container {
+  max-width: 370px;
+  width: 100%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 35px 30px 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px $color-shadow;
+  animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.login-container h1 {
   color: $color-principal;
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 0 10px;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.07);
+}
+
+.input-group label {
+  color: $color-principal;
+  font-size: 1.3rem;
+  margin-right: 12px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 8px;
+  font-size: 16px;
+  outline: none;
+  text-align: left;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: $color-principal;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px $color-shadow;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.login-container button:hover {
+  background: darken($color-principal, 12%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+
