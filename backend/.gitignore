@@ -32,3 +32,9 @@ htmlcov/
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+# ignorar node modules de backend (django templates)
+node_modules/
+
+# ignorar archivos de SASS compilados, porque se generan automaticamente y no es necesario versionarlos
+*.css.map
