@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required  # necesario para prot
 from usuarios.models import ModeloUsuarioModificado  # importar el modelo de usuario personalizado
 from django.contrib.auth import authenticate, login  # para autenticar y loguear usuarios
 from django.shortcuts import render, redirect  # importante para renderizar plantillas y redirigir
+from django.contrib.auth import logout  # para cerrar sesion
 
 # def para renderizar el template de login
 def login_template(request):
@@ -34,3 +35,9 @@ def login_template(request):
 @login_required(login_url='/')  # redirige al login si no está autenticado, por eso @login_required
 def admin_dashboard_template(request):
     return render(request, 'admin/dashboardAdmin.html')
+
+# def para logout en django template
+@login_required(login_url='/')  # redirige al login si no está autenticado, por eso @login_required
+def logout_view(request):
+    logout(request)  # cerrar sesion
+    return redirect('login_template')  # redirigir al login
