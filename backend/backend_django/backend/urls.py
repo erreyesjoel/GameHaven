@@ -21,4 +21,5 @@ from . import views # import del views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.login_template, name='login_template'), # template de login, sera la raiz del sitio
+    path('dashboard', views.admin_dashboard_template, name='admin_dashboard_template'), # template del dashboard de admin, http://127.0.0.1:8002/dashboard
 ]
