@@ -9,7 +9,8 @@
         <a href="#" class="nav-link">Juegos</a>
         <a href="#" class="nav-link">Ajustes</a>
     </nav>
-    <div class="logout-link-container">
-        <a href="#" class="nav-link logout-link">Cerrar sesión</a>
-    </div>
+    <form method="POST" action="{% url 'logout' %}" class="logout-link-container">
+        {% csrf_token %}
+        <button type="submit" class="nav-link logout-link">Cerrar sesión</button>
+    </form>
 </header>

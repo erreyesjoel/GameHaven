@@ -59,6 +59,9 @@
   transition: background 0.2s;
   background: rgba(255,255,255,0.08);
   margin-top: 1rem;
+  border: none;  // porque es un boton
+  cursor: pointer;      
+  outline: none;        
 }
 
 .logout-link:hover {
