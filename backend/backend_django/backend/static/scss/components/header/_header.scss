@@ -2,6 +2,7 @@
 @use '../../tipografia' as *;
 
 .header-vertical {
+  position: fixed; // para que quede fijo al hacer scroll
   width: 220px;
   min-height: 100vh;
   background: $azul-primario;
@@ -38,4 +39,28 @@
 
 .nav-vertical .nav-link:hover {
   background: rgba(255,255,255,0.12);
+}
+
+.logout-link-container {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3.5rem; // para que no quede tan pegado al borde inferior
+}
+
+.logout-link {
+  color: #fff;
+  text-decoration: none;
+  font-family: $fuente-principal;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  background: rgba(255,255,255,0.08);
+  margin-top: 1rem;
+}
+
+.logout-link:hover {
+  background: rgba(255,255,255,0.18);
 }
