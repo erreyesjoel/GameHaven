@@ -41,6 +41,13 @@
   background: rgba(255,255,255,0.12);
 }
 
+// Estilo para el link activo
+.nav-link.active {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44,52,132,0.10);
+}
+
 // Acciones de usuario y logout abajo del todo
 .usuario-acciones-container {
   margin-top: auto; // empuja el bloque al fondo del header

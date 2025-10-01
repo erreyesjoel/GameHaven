@@ -37,7 +37,7 @@ def admin_dashboard_template(request):
     # con esto, podriamos pasar datos al template, como el nombre del usuario o el email
     # en el html se accede con {{ user.username }} o {{ user.email }}
     # no hace falta pasar el user, porque django lo pasa automaticamente con el request y  por django contrib.auth.context_processors.auth
-    return render(request, 'admin/dashboardAdmin.html')
+    return render(request, 'admin/dashboardAdmin.html', {'active_page': 'dashboard'}) # pasar active_page para resaltar el link activo en el header
 
 # def para logout en django template
 @login_required(login_url='/')  # redirige al login si no está autenticado, por eso @login_required

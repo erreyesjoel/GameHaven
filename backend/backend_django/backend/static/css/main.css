@@ -137,6 +137,12 @@ incluyendo el @import url de css */
   background: rgba(255, 255, 255, 0.12);
 }
 
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44, 52, 132, 0.1);
+}
+
 .usuario-acciones-container {
   margin-top: auto;
   width: 100%;
