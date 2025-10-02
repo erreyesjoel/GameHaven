@@ -1,0 +1,29 @@
+{% load static %}
+<!-- load static, necesario para el uso de archivos estáticos en Django (css, js, img...etc) -->
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<header class="header-vertical">
+    <h1>GameHaven</h1>
+    <nav class="nav-vertical">
+        <a href="#" class="nav-link{% if active_page == 'dashboard' %} active{% endif %}">Dashboard</a>
+        <a href="#" class="nav-link{% if active_page == 'usuarios' %} active{% endif %}">Usuarios</a>
+        <a href="#" class="nav-link">Juegos</a>
+        <a href="#" class="nav-link">Ajustes</a>
+    </nav>
+    <!-- Acciones de usuario y logout abajo del todo -->
+    <div class="usuario-acciones-container">
+        <div class="usuario-info">
+            <span class="usuario-email">{{ user.email }}</span>
+            <span class="usuario-rol">
+                {% if user.rol == "ADMIN" %}
+                    Administrador
+                {% else %}
+                    {{ user.rol }}
+                {% endif %}
+            </span>
+        </div>
+        <form method="POST" action="{% url 'logout' %}" class="logout-link-container">
+            {% csrf_token %}
+            <button type="submit" class="nav-link logout-link">Cerrar sesión</button>
+        </form>
+    </div>
+</header>

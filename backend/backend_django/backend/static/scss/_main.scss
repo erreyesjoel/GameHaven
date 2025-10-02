@@ -1,0 +1,9 @@
+/* en sass todas las reglas @use y @import de scss deben ir antes de cualquier otra regla
+incluyendo el @import url de css */
+@use 'tipografia';
+@use 'login';
+@use 'variables';
+@use 'components/header/header';
+@use 'global'; // archivo de estilos globales, como body (espacios arriba, etc)
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+

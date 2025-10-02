@@ -1,21 +1,10 @@
-@charset "UTF-8";
-body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .login-bg {
   width: 100vw;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Sin fondo aquí */
+  background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
 }
 
 .login-container {

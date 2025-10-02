@@ -1,0 +1,107 @@
+@use '../../variables' as *;
+@use '../../tipografia' as *;
+
+.header-vertical {
+  position: fixed; // para que quede fijo al hacer scroll
+  width: 220px;
+  min-height: 100vh;
+  background: $azul-primario;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.header-vertical h1 {
+  color: #fff;
+  font-family: $fuente-principal;
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.nav-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.nav-vertical .nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-family: $fuente-principal;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-vertical .nav-link:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+// Estilo para el link activo
+.nav-link.active {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44,52,132,0.10);
+}
+
+// Acciones de usuario y logout abajo del todo
+.usuario-acciones-container {
+  margin-top: auto; // empuja el bloque al fondo del header
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 2.2rem; // separa del borde inferior
+}
+
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.usuario-email {
+  color: #fff;
+  font-size: 1rem;
+  opacity: 0.85;
+  word-break: break-all;
+  margin-bottom: 0.2rem;
+}
+
+.usuario-rol {
+  color: #fff;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.logout-link-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-link {
+  color: #fff;
+  text-decoration: none;
+  font-family: $fuente-principal;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  background: rgba(255,255,255,0.08);
+  border: none;  // porque es un boton
+  cursor: pointer;      
+  outline: none;        
+}
+
+.logout-link:hover {
+  background: rgba(220, 53, 69, 0.18); // rojo suave al hacer hover
+}

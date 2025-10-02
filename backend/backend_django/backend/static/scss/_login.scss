@@ -3,23 +3,13 @@ $color-principal: #3498db;
 $color-bg: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
 $color-shadow: rgba(52, 152, 219, 0.15);
 
-body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: $color-bg;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .login-bg {
   width: 100vw;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Sin fondo aquí */
+  background: $color-bg;
 }
 
 .login-container {
@@ -97,5 +87,20 @@ body {
   background: darken($color-principal, 12%);
   transform: translateY(-2px) scale(1.03);
 }
+
+.login-error {
+  background: #e74c3c; // rojo intenso
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  letter-spacing: 0.5px;
+  opacity: 0.96;
+  animation: shake 0.3s;
+}
+
 
 
