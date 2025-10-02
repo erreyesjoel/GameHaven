@@ -22,8 +22,14 @@ def login_template(request):
             # autenticar usando el username del usuario encontrado
             user = authenticate(request, username=user_obj.username, password=password)
             if user is not None: # si el usuario es valido, osea sus credenciales son correctas, logeamos
-                login(request, user)  # loguear al usuario
-                return redirect('admin_dashboard_template')  # redirigir al dashboard de admin
+                # comprobar si el usuario es admin (rol ADMIN)
+                if user.rol == ModeloUsuarioModificado.Roles.ADMIN:
+                    login(request, user)  # loguear al usuario
+                    return redirect('admin_dashboard_template')  # redirigir al dashboard de admin
+                else:
+                    # si el usuario no es admin, mostramos mensaje de error usando messages
+                    messages.error(request, "No tienes permisos para acceder a esta zona.")
+                    return redirect('login_template')  # redirigir para evitar el reenvío del formulario
             else:
                 # si las credenciales no son válidas, mostramos mensaje de error usando messages
                 messages.error(request, "Credenciales inválidas. Inténtalo de nuevo.")
