@@ -4,6 +4,7 @@ from usuarios.models import ModeloUsuarioModificado  # importar el modelo de usu
 from django.contrib.auth import authenticate, login  # para autenticar y loguear usuarios
 from django.shortcuts import render, redirect  # importante para renderizar plantillas y redirigir
 from django.contrib.auth import logout  # para cerrar sesion
+from django.contrib import messages  # para mostrar mensajes flash en Django
 
 # def para renderizar el template de login
 def login_template(request):
@@ -11,7 +12,6 @@ def login_template(request):
     # para que si esta autenticado, que no pueda volver al login sin cerrar sesion
     if request.user.is_authenticated:
         return redirect('admin_dashboard_template')
-    error = None
     if request.method == 'POST':
         # cogemos los campos email y password
         email = request.POST.get('email')
@@ -25,11 +25,15 @@ def login_template(request):
                 login(request, user)  # loguear al usuario
                 return redirect('admin_dashboard_template')  # redirigir al dashboard de admin
             else:
-                error = "Credenciales inválidas. Inténtalo de nuevo."
+                # si las credenciales no son válidas, mostramos mensaje de error usando messages
+                messages.error(request, "Credenciales inválidas. Inténtalo de nuevo.")
+                return redirect('login_template')  # redirigir para evitar el reenvío del formulario
         except ModeloUsuarioModificado.DoesNotExist:
-            error = "Credenciales inválidas. Inténtalo de nuevo."
+            # si el usuario no existe, mostramos mensaje de error usando messages
+            messages.error(request, "Credenciales inválidas. Inténtalo de nuevo.")
+            return redirect('login_template')  # redirigir para evitar el reenvío del formulario
     # si no es post, renderizamos el template de login
-    return render(request, 'autenticacion/login.html', {'error': error})
+    return render(request, 'autenticacion/login.html')
 
 # def para renderiz el dashboard de admin al logearnos en django admin (template)
 @login_required(login_url='/')  # redirige al login si no está autenticado, por eso @login_required
