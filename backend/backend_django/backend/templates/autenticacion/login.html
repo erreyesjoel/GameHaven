@@ -17,7 +17,15 @@
         <label for="password"><i class="fa-solid fa-lock"></i></label>
         <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
       </div>
+      <!-- Para coger los errores, usamos la variable 'error' 
+       que Django nos proporciona en el contexto, en la definición de la vista -->
+      {% if error %}
+      <div class="login-error">
+      {{ error }}
+      </div>
+      {% endif %}
       <button type="submit"><i class="fa-solid fa-arrow-right"></i> Entrar</button>
     </form>
   </div>
+  <script src="{% static 'js/Login.js' %}"></script>
 </div>

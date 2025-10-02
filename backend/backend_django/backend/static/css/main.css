@@ -95,6 +95,20 @@ body, .login-container {
   transform: translateY(-2px) scale(1.03);
 }
 
+.login-error {
+  background: #e74c3c;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  letter-spacing: 0.5px;
+  opacity: 0.96;
+  animation: shake 0.3s;
+}
+
 /* en sass todas las reglas @use y @import de scss deben ir antes de cualquier otra regla
 incluyendo el @import url de css */
 .header-vertical {

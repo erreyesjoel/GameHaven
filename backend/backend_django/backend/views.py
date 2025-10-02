@@ -25,9 +25,9 @@ def login_template(request):
                 login(request, user)  # loguear al usuario
                 return redirect('admin_dashboard_template')  # redirigir al dashboard de admin
             else:
-                error = "Credenciales inválidas. Por favor, inténtalo de nuevo."
+                error = "Credenciales inválidas. Inténtalo de nuevo."
         except ModeloUsuarioModificado.DoesNotExist:
-            error = "Credenciales inválidas. Por favor, inténtalo de nuevo."
+            error = "Credenciales inválidas. Inténtalo de nuevo."
     # si no es post, renderizamos el template de login
     return render(request, 'autenticacion/login.html', {'error': error})
 
