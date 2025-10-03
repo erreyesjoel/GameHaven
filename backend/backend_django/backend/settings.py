@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuarios',  # nuestra app de usuarios (python manage.py startapp usuarios)
+    'plataformas', # mi app startapp plataformas (python manage.py startapp plataformas)
 ]
 
 MIDDLEWARE = [
