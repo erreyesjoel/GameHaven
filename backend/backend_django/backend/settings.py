@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios',  # nuestra app de usuarios (python manage.py startapp usuarios)
     'plataformas', # mi app startapp plataformas (python manage.py startapp plataformas)
+    'categorias', # mi app startapp categorias (python manage.py startapp categorias)
 ]
 
 MIDDLEWARE = [
