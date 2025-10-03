@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'usuarios',  # nuestra app de usuarios (python manage.py startapp usuarios)
     'plataformas', # mi app startapp plataformas (python manage.py startapp plataformas)
     'categorias', # mi app startapp categorias (python manage.py startapp categorias)
+    'juegos', # mi app startapp juegos (python manage.py startapp juegos)
 ]
 
 MIDDLEWARE = [
