@@ -33,3 +33,14 @@ class Juegos_Plataformas(models.Model):
     class Meta:
         db_table = 'juegos_plataformas' # nombre de la tabla en la base de datos, lo elegimos nosotros con el class meta
         unique_together = ('juego', 'plataforma') # para que no se repitan los pares juego-plataforma en la tabla pivote, es decir, que un juego no pueda estar dos veces en la misma plataforma
+
+# clase para tabla fotos_juegos, relacion 1:N entre juegos y fotos_juegos
+# blank true es para definir que el campo es opcional en formularios
+# null true es para definir que el campo es opcional en la base de datos
+class Fotos_Juegos(models.Model):
+    juego = models.ForeignKey(Juego, on_delete=models.CASCADE) # Juego es la clase que importamos de juegos.models, el class Juego
+    imagen = models.ImageField(upload_to='juegos/', blank=True, null=True) # Para imágenes subidas al servidor, la carpeta juegos/ se crea automaticamente en media/
+    url = models.URLField(blank=True, null=True) # Para imágenes externas
+
+    class Meta:
+        db_table = 'fotos_juegos' # nombre de la tabla en la base de datos
