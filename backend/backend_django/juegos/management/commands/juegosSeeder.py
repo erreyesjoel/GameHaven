@@ -7,7 +7,6 @@ class Command(BaseCommand):
     help = 'Crea 12 juegos de ejemplo con plataformas y fotos'
 
     def handle(self, *args, **options):
-        # Diccionario de plataformas por nombre para fácil acceso
         plataformas = {p.tipo: p for p in Plataforma.objects.all()}
         categorias = {c.nombre_categoria: c for c in Categoria.objects.all()}
 
@@ -22,7 +21,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("LUCHAS"),
                 "plataformas": ["PLAYSTATION"],
                 "fotos": [
-                    "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-sparking-zero/00-page-setup/dbsz_keyart.jpg"
+                    "https://media.game.es/COVERV2/3D_L/231/231233.png"  # Dragon Ball Sparking Zero portada GAME
                 ]
             },
             {
@@ -35,7 +34,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("LUCHAS"),
                 "plataformas": ["PLAYSTATION"],
                 "fotos": [
-                    "https://static.bandainamcoent.eu/high/dragon-ball/dragon-ball-xenoverse-2/00-page-setup/dbxv2_keyart.jpg"
+                    "https://media.game.es/COVERV2/3D_L/143/143365.png"  # Dragon Ball Xenoverse 2 portada GAME
                 ]
             },
             {
@@ -48,7 +47,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("LUCHAS"),
                 "plataformas": ["PLAYSTATION", "PC"],
                 "fotos": [
-                    "https://static.bandainamcoent.eu/high/naruto/naruto-shippuden-ultimate-ninja-storm-4/00-page-setup/naruto_keyart.jpg"
+                    "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/349040/header.jpg?t=1703080866"  # Naruto Storm 4 portada GAME
                 ]
             },
             {
@@ -61,7 +60,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("DEPORTES"),
                 "plataformas": ["PLAYSTATION", "PC", "XBOX"],
                 "fotos": [
-                    "https://media.contentapi.ea.com/content/dam/ea/fc/fc-24/common/fc24-keyart.jpg"
+                    "https://media.game.es/COVERV2/3D_L/230/230123.png"  # EA Sports FC 24 portada GAME (no existe FC 26 aún)
                 ]
             },
             {
@@ -74,7 +73,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("AVENTURAS"),
                 "plataformas": ["NINTENDO"],
                 "fotos": [
-                    "https://zelda.nintendo.com/breath-of-the-wild/assets/media/header/Main-Day.jpg"
+                    "https://media.game.es/COVERV2/3D_L/140/140634.png"  # Zelda Breath of the Wild portada GAME
                 ]
             },
             {
@@ -87,7 +86,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("SANDBOX"),
                 "plataformas": ["PC", "PLAYSTATION", "XBOX", "NINTENDO"],
                 "fotos": [
-                    "https://www.minecraft.net/content/dam/games/minecraft/key-art/Minecraft-xbox-keyart.jpg"
+                    "https://gaming-cdn.com/images/products/442/616x353/minecraft-java-bedrock-edition-java-bedrock-edition-pc-juego-cover.jpg?v=1716387513"  # Minecraft Switch portada GAME
                 ]
             },
             {
@@ -100,7 +99,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("ACCION"),
                 "plataformas": ["PC", "PLAYSTATION", "XBOX"],
                 "fotos": [
-                    "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/9k2k4k9o3k2k4k9o3k2k/gtav-keyart.jpg"
+                    "https://media.game.es/COVERV2/3D_L/123/123936.png"  # GTA V portada GAME
                 ]
             },
             {
@@ -113,7 +112,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("CARRERAS"),
                 "plataformas": ["PC", "XBOX"],
                 "fotos": [
-                    "https://compass-ssl.xbox.com/assets/2d/6b/2d6b2b2d-1b1b-4b4b-8b8b-2b2b2b2b2b2b.jpg"
+                    "https://media.game.es/COVERV2/3D_L/222/222530.png"  # Forza Horizon 5 portada GAME
                 ]
             },
             {
@@ -126,7 +125,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("SIMULACION"),
                 "plataformas": ["NINTENDO"],
                 "fotos": [
-                    "https://www.animal-crossing.com/new-horizons/assets/img/global/header/acnh-keyart.jpg"
+                    "https://media.game.es/COVERV2/3D_L/163/163296.png"  # Animal Crossing portada GAME
                 ]
             },
             {
@@ -139,7 +138,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("RPG"),
                 "plataformas": ["PC", "PLAYSTATION", "XBOX", "NINTENDO"],
                 "fotos": [
-                    "https://cdn.cdprojektred.com/thewitcher.com/media/w3_keyart_1920x1080.jpg"
+                    "https://media.game.es/COVERV2/3D_L/140/140636.png"  # The Witcher 3 portada GAME
                 ]
             },
             {
@@ -152,7 +151,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("PLATAFORMAS"),
                 "plataformas": ["NINTENDO"],
                 "fotos": [
-                    "https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/super-mario-odyssey-switch/super-mario-odyssey-switch-hero.jpg"
+                    "https://media.game.es/COVERV2/3D_L/144/144861.png"  # Super Mario Odyssey portada GAME
                 ]
             },
             {
@@ -165,7 +164,7 @@ class Command(BaseCommand):
                 "categoria": categorias.get("SHOOTER"),
                 "plataformas": ["PC", "PLAYSTATION", "XBOX"],
                 "fotos": [
-                    "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/mw2/home/keyart/MWII-REVEAL-TOUT.jpg"
+                    "https://media.game.es/COVERV2/3D_L/228/228377.png"  # Call of Duty MWII portada GAME
                 ]
             },
         ]
@@ -193,7 +192,10 @@ class Command(BaseCommand):
                 if plataforma:
                     Juegos_Plataformas.objects.get_or_create(juego=juego, plataforma=plataforma)
 
-            # Añadir fotos
+            # Eliminar fotos antiguas y añadir las nuevas
+            # cada vez que se corre el seeder se actualizan las fotos
+            Fotos_Juegos.objects.filter(juego=juego).delete()
             for url in juego_data["fotos"]:
-                Fotos_Juegos.objects.get_or_create(juego=juego, url=url)
+                Fotos_Juegos.objects.create(juego=juego, url=url)
+                self.stdout.write(self.style.SUCCESS(f"Foto añadida a '{juego.titulo}': {url}"))
 
