@@ -11,7 +11,7 @@
       {% csrf_token %}
       <div class="input-group">
         <label for="email"><i class="fa-solid fa-envelope"></i></label>
-        <input type="email" id="email" name="email" placeholder="Introduce tu email" required>
+        <input type="email" id="email" name="email" placeholder="Introduce tu email" required value="{{ request.POST.email }}">
       </div>
       <div class="input-group">
         <label for="password"><i class="fa-solid fa-lock"></i></label>
