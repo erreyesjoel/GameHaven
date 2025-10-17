@@ -4,14 +4,13 @@
 ![Django](https://img.shields.io/badge/Django-5.2.3-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TSX](https://img.shields.io/badge/TSX-%23007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
-
+![Django Ninja](https://img.shields.io/badge/Django_Ninja-00B4B6?style=for-the-badge&logo=django&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
 ---
 
@@ -30,6 +29,7 @@ Este proyecto tiene fines **educativos y de aprendizaje**, y consiste en **dos p
 
 - La base de datos será **PostgreSQL**.  
 - Se usa **Git** para control de versiones y seguimiento del proyecto.  
+- La API REST se desarrollará con **Django Ninja** y contará con documentación interactiva gracias a **Swagger**.
 
 ---
 
