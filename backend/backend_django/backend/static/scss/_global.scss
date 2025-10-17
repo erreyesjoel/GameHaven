@@ -1,5 +1,21 @@
 // filepath: backend/backend_django/backend/static/scss/_global.scss
+@use 'variables' as vars;
+
+$header-width: 260px;
+
+/* color azul para el header de la tabla */
+$table-header-bg: vars.$azul-primario;
+
 body {
   margin: 0;
   padding: 0;
 }
+
+/* global en el header, para que el contenido, se vaya un poco a la derecha
+ya que el header es vertical a la izquierda */
+.main-content {
+  padding-left: $header-width;
+  min-height: 100vh;
+  transition: padding-left 0.2s;
+}
+

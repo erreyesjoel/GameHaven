@@ -214,9 +214,95 @@ incluyendo el @import url de css */
   background: rgba(220, 53, 69, 0.18);
 }
 
+/* color azul para el header de la tabla */
 body {
   margin: 0;
   padding: 0;
+}
+
+/* global en el header, para que el contenido, se vaya un poco a la derecha
+ya que el header es vertical a la izquierda */
+.main-content {
+  padding-left: 260px;
+  min-height: 100vh;
+  transition: padding-left 0.2s;
+}
+
+/* color azul para el header de la tabla */
+/* ====== ESTILOS DE TABLAS GLOBALES ====== */
+.table-wrapper {
+  padding: 16px;
+  background: transparent;
+}
+
+.table-app {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table-app thead th {
+  background: #2c3484;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid #2c3484;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.table-app tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #111827;
+}
+
+.table-app .table-title {
+  display: inline-block;
+  max-width: 340px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  color: #2c3484;
+}
+
+.table-app .table-platforms {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.table-app td img {
+  display: block;
+  max-width: 80px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.table-app tbody tr:hover {
+  background: #eaf3ff;
+}
+
+@media (max-width: 900px) {
+  .table-wrapper {
+    padding-right: 0;
+  }
+  .table-app thead th, .table-app tbody td {
+    padding: 8px 10px;
+  }
+  .table-app th:nth-child(6),
+  .table-app td:nth-child(6) {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

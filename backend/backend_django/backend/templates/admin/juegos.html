@@ -1,46 +1,49 @@
 {% include 'components/header/header.html' %}
-
-<h1>Juegos</h1>
-<table>
-    <thead>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="main-content">
+  <div class="table-wrapper">
+    <h1>Juegos</h1>
+    <table class="table-app">
+      <thead>
         <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Categoría</th>
-            <th>Plataformas</th>
-            <th>Foto</th>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Categoría</th>
+          <th>Plataformas</th>
+          <th>Foto</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         {% for juego in juegos %}
         <tr>
-            <td>{{ juego.id }}</td>
-            <td>{{ juego.titulo }}</td>
-            <td>{{ juego.descripcion }}</td>
-            <td>{{ juego.categoria.get_nombre_categoria_display }}</td>
-            <td>
-                {% for jp in juego.juegos_plataformas_set.all %}
-                    {{ jp.plataforma.get_tipo_display }}{% if not forloop.last %}, {% endif %}
-                {% empty %}
-                    Sin plataformas
-                {% endfor %}
-            </td>
-            <td>
-                {% with foto=juego.fotos_juegos_set.first %}
-                    {% if foto %}
-                        {% if foto.url %}
-                            <img src="{{ foto.url }}" alt="Foto de {{ juego.titulo }}" width="80"><br>
-                            <small>{{ foto.url }}</small>
-                        {% else %}
-                            Sin foto (no hay URL)
-                        {% endif %}
-                    {% else %}
-                        Sin foto (no hay registro)
-                    {% endif %}
-                {% endwith %}
-            </td>
+          <td><span class="table-title">{{ juego.titulo }}</span></td>
+          <td>{{ juego.descripcion }}</td>
+          <td>{{ juego.categoria.get_nombre_categoria_display }}</td>
+          <td class="table-platforms">
+            {% for jp in juego.juegos_plataformas_set.all %}
+            {{ jp.plataforma.get_tipo_display }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+            Sin plataformas
+            {% endfor %}
+          </td>
+          <td>
+            {% with foto=juego.fotos_juegos_set.first %}
+            {% if foto %}
+            {% if foto.url %}
+            <img src="{{ foto.url }}" alt="Foto de {{ juego.titulo }}" width="80"><br>
+            <small>{{ foto.url }}</small>
+            {% else %}
+            Sin foto (no hay URL)
+            {% endif %}
+            {% else %}
+            Sin foto (no hay registro)
+            {% endif %}
+          {% endwith %}
+          </td>
         </tr>
         {% endfor %}
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>

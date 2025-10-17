@@ -1,0 +1,76 @@
+@use 'variables' as vars;
+
+/* color azul para el header de la tabla */
+$table-header-bg: vars.$azul-primario;
+
+/* ====== ESTILOS DE TABLAS GLOBALES ====== */
+.table-wrapper {
+  padding: 16px;
+  background: transparent;
+}
+
+.table-app {
+  width: 100%;
+  border-collapse: collapse;
+  background: vars.$bg;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table-app thead th {
+  background: $table-header-bg;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid $table-header-bg;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.table-app tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid vars.$border;
+  vertical-align: middle;
+  font-size: 14px;
+  color: vars.$accent;
+}
+
+.table-app .table-title {
+  display: inline-block;
+  max-width: vars.$juego-titulo-max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  color: $table-header-bg; // acento azul en el título
+}
+
+.table-app .table-platforms {
+  color: vars.$muted;
+  font-size: 13px;
+}
+
+.table-app td img {
+  display: block;
+  max-width: vars.$foto-max-width;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.table-app tbody tr:hover {
+  background: #eaf3ff;
+}
+
+@media (max-width: 900px) {
+  .table-wrapper { padding-right: 0; }
+  .table-app thead th, .table-app tbody td { padding: 8px 10px; }
+  .table-app th:nth-child(6),
+  .table-app td:nth-child(6) {
+    display: none;
+  }
+}
