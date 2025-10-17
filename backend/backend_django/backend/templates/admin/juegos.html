@@ -10,6 +10,7 @@
           <th>Título</th>
           <th>Descripción</th>
           <th>Categoría</th>
+          <th>PEGI</th>
           <th>Plataformas</th>
           <th>Foto</th>
         </tr>
@@ -20,6 +21,7 @@
           <td><span class="table-title">{{ juego.titulo }}</span></td>
           <td>{{ juego.descripcion }}</td>
           <td>{{ juego.categoria.get_nombre_categoria_display }}</td>
+          <td>{{ juego.pegi }}</td>
           <td class="table-platforms">
             {% for jp in juego.juegos_plataformas_set.all %}
             {{ jp.plataforma.get_tipo_display }}{% if not forloop.last %}, {% endif %}
@@ -32,7 +34,6 @@
             {% if foto %}
             {% if foto.url %}
             <img src="{{ foto.url }}" alt="Foto de {{ juego.titulo }}" width="80"><br>
-            <small>{{ foto.url }}</small>
             {% else %}
             Sin foto (no hay URL)
             {% endif %}
