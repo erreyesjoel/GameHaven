@@ -16,6 +16,7 @@ $table-header-bg: vars.$azul-primario;
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   border-radius: 6px;
   overflow: hidden;
+  font-family: vars.$fuente-principal; /* usar tipografia de tipografia scss */
 }
 
 .table-app thead th {
