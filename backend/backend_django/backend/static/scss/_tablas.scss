@@ -67,6 +67,33 @@ $table-header-bg: vars.$azul-primario;
   background: #eaf3ff;
 }
 
+/* ====== ACCIONES EN TABLA ====== */
+.table-app .table-actions {
+  text-align: center;
+  min-width: 60px;
+}
+
+// ...existing code...
+
+.icon-action {
+  cursor: pointer;
+  vertical-align: middle;
+  transition: filter 0.2s, transform 0.2s;
+  fill: none;
+  color: vars.$azul-primario; // <-- aquí aplicas el azul primario
+  stroke: currentColor; // el SVG ya lo usa
+  stroke-width: 1.5;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.icon-action:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  color: darken(vars.$azul-primario, 10%);
+}
+
 @media (max-width: 900px) {
   .table-wrapper { padding-right: 0; }
   .table-app thead th, .table-app tbody td { padding: 8px 10px; }

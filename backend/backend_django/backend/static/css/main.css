@@ -293,6 +293,31 @@ ya que el header es vertical a la izquierda */
   background: #eaf3ff;
 }
 
+/* ====== ACCIONES EN TABLA ====== */
+.table-app .table-actions {
+  text-align: center;
+  min-width: 60px;
+}
+
+.icon-action {
+  cursor: pointer;
+  vertical-align: middle;
+  transition: filter 0.2s, transform 0.2s;
+  fill: none;
+  color: #2c3484;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.icon-action:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  color: rgb(31.25, 36.9318181818, 93.75);
+}
+
 @media (max-width: 900px) {
   .table-wrapper {
     padding-right: 0;

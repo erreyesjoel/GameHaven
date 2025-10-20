@@ -13,6 +13,7 @@
           <th>PEGI</th>
           <th>Plataformas</th>
           <th>Foto</th>
+          <th>Acciones</th> <!-- Nueva columna para acciones -->
         </tr>
       </thead>
       <tbody>
@@ -41,6 +42,15 @@
             Sin foto (no hay registro)
             {% endif %}
           {% endwith %}
+          </td>
+          <td class="table-actions">
+            <!-- Icono SVG de editar, usando el sprite.svg -->
+            <!-- Enlace hardcodeado hasta tener la URL real -->
+            <a href="/admin/juegos/editar/{{ juego.id }}/" title="Editar">
+              <svg class="icon-action" width="24" height="24">
+                <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
+              </svg>
+            </a>
           </td>
         </tr>
         {% endfor %}
