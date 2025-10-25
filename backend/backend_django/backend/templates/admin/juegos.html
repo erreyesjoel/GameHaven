@@ -43,15 +43,21 @@
             {% endif %}
           {% endwith %}
           </td>
-          <td class="table-actions">
-            <!-- Icono SVG de editar, usando el sprite.svg -->
-            <!-- Enlace hardcodeado hasta tener la URL real -->
-            <a href="/admin/juegos/editar/{{ juego.id }}/" title="Editar">
-              <svg class="icon-action" width="24" height="24">
-                <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
-              </svg>
-            </a>
-          </td>
+        <td class="table-actions">
+  <!-- Icono Editar -->
+  <a href="/admin/juegos/editar/{{ juego.id }}/" title="Editar">
+    <svg class="icon-action" width="24" height="24">
+      <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
+    </svg>
+  </a>
+  
+  <!-- Icono Eliminar -->
+  <a href="/admin/juegos/eliminar/{{ juego.id }}/" title="Eliminar" class="delete-link">
+    <svg class="icon-action trash" width="24" height="24">
+      <use xlink:href="{% static 'icons/sprite.svg' %}#trash-delete"></use>
+    </svg>
+  </a>
+</td>
         </tr>
         {% endfor %}
       </tbody>

@@ -6,13 +6,13 @@ $table-header-bg: vars.$azul-primario;
 /* ====== ESTILOS DE TABLAS GLOBALES ====== */
 .table-wrapper {
   padding: 16px;
-  background: transparent;
+  // background: transparent; // Elimina o comenta esta línea si existe
 }
 
 .table-app {
   width: 100%;
   border-collapse: collapse;
-  background: vars.$bg;
+  // background: vars.$bg; // Elimina o comenta esta línea si existe
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   border-radius: 6px;
   overflow: hidden;
@@ -67,21 +67,69 @@ $table-header-bg: vars.$azul-primario;
   background: #eaf3ff;
 }
 
-/* ====== ACCIONES EN TABLA ====== */
-.table-app .table-actions {
-  text-align: center;
-  min-width: 60px;
+/* Enlaces de acciones */
+.table-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-// ...existing code...
+/* Icono de eliminar (trash) en rojo */
+.icon-action.trash {
+  color: #e53935; // rojo para eliminar
+}
 
 .icon-action {
   cursor: pointer;
   vertical-align: middle;
   transition: filter 0.2s, transform 0.2s;
   fill: none;
-  color: vars.$azul-primario; // <-- aquí aplicas el azul primario
-  stroke: currentColor; // el SVG ya lo usa
+  color: vars.$azul-primario; // azul para iconos por defecto
+  stroke: currentColor;
+  stroke-width: 1.5;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+/* ====== ACCIONES EN TABLA ====== */
+.table-app .table-actions {
+  text-align: center;
+  min-width: 80px; /* Aumenté el ancho mínimo para dos iconos */
+  gap: 12px; /* Espacio entre iconos */
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-action:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  color: darken(vars.$azul-primario, 10%);
+}
+
+/* Hover especial para el icono trash */
+.icon-action.trash:hover {
+  color: darken(#e53935, 10%);
+}
+
+/* Estilos para el enlace de eliminar */
+.delete-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icono de eliminar (trash) en rojo */
+.icon-action.trash {
+  color: #e53935; // rojo para eliminar
+}
+
+.icon-action {
+  cursor: pointer;
+  vertical-align: middle;
+  transition: filter 0.2s, transform 0.2s;
+  fill: none;
+  color: vars.$azul-primario; // azul para iconos por defecto
+  stroke: currentColor;
   stroke-width: 1.5;
   width: 24px;
   height: 24px;
@@ -92,6 +140,11 @@ $table-header-bg: vars.$azul-primario;
   filter: brightness(1.2);
   transform: scale(1.1);
   color: darken(vars.$azul-primario, 10%);
+}
+
+/* Hover especial para el icono trash */
+.icon-action.trash:hover {
+  color: darken(#e53935, 10%);
 }
 
 @media (max-width: 900px) {
