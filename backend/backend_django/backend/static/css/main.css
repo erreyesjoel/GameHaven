@@ -385,5 +385,8 @@ ya que el header es vertical a la izquierda */
     display: none;
   }
 }
+.modal-eliminar {
+  display: none;
+}
 
 /*# sourceMappingURL=main.css.map */
