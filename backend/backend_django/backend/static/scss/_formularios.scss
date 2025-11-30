@@ -1,2 +1,14 @@
 @use 'variables' as vars;
 
+.editar-juego-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.editar-juego-form-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;  // para que baje un poco el contenido
+  gap: 16px; // espacio entre icono y título
+  margin-bottom: 24px;
+}
