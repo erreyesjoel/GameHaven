@@ -387,6 +387,91 @@ ya que el header es vertical a la izquierda */
 }
 .modal-eliminar {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+.modal-eliminar-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.texto-modal {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #111827;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.modal-eliminar-content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 420px;
+  max-width: 90%;
+  z-index: 2;
+}
+
+.modal-eliminar-buttons {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 10px;
+}
+
+.btn-eliminar-modal {
+  background-color: #2c3484;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar-modal:hover {
+  background-color: rgb(31.25, 36.9318181818, 93.75);
+}
+
+.btn-cancelar-modal {
+  background-color: #e5e7eb;
+  color: #111827;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancelar-modal:hover {
+  background-color: rgb(200.1739130435, 204.3913043478, 212.8260869565);
+}
+
+.h2-modal-eliminar {
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */
