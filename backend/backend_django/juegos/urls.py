@@ -3,4 +3,5 @@ from . import views # importamos las vistas del mismo directorio, osea de nuestr
 
 urlpatterns = [
     path('', views.mostrarJuegos, name='mostrar_juegos'),
+    path('eliminar/<int:juego_id>/', views.eliminarJuego, name='eliminar_juego'),
 ]

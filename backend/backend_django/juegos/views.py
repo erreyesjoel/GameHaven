@@ -1,20 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404 # importamos render para renderizar templates y redirect para redirigir, get_object_or_404 para obtener objetos o devolver 404
 from juegos.models import Juego # importamos el modelo
 from plataformas.models import Plataforma # importamos el modelo
+from django.contrib.auth.decorators import login_required # para proteger las vistas
 
 # Create your views here.
 # renderizar juegos.html y funcion para devolver los juegos
+@login_required
 def mostrarJuegos(request):
     juegos = Juego.objects.all() # obtenemos todos los juegos
     plataformas = Plataforma.objects.all() # obtenemos todas las plataformas
     return render(request, 'admin/juegos.html', {'juegos': juegos, 'plataformas': plataformas})
 
+@login_required
 # funcion (def) para eliminar un juego 
 def eliminarJuego(request, juego_id):
     juego = get_object_or_404(Juego, id=juego_id) # obtenemos el juego por su id
     juego.delete() # eliminamos el juego
-    return redirect('mostrarJuegos') # redirigimos a la lista de juegos
+    return redirect('mostrar_juegos') # redirigimos a la lista de juegos
 
+@login_required
 # def para editar juego
 def editarJuego(request, juego_id):
     juego = get_object_or_404(Juego, id=juego_id) # buscamos juego por id
@@ -41,5 +45,5 @@ def editarJuego(request, juego_id):
                 from juegos.models import Fotos_Juegos
                 Fotos_Juegos.objects.create(juego=juego, url=foto_juego_url) # creamos la foto si no existe
         juego.save() # guardamos los cambios
-        return redirect('mostrarJuegos') # redirigimos a la lista de juegos
+        return redirect('mostrar_juegos') # redirigimos a la lista de juegos
     return render(request, 'admin/editar_juego.html', {'juego': juego})

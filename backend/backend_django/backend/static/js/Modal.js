@@ -20,6 +20,15 @@ class Modal {
                 };
             }
 
+            // Logica para que funcione eliminar juego del backend
+            // Al hacer clic en "Eliminar", redirige a la vista eliminarJuego
+            // boton en html con id confirmarEliminar
+            const btnEliminar = document.querySelector('#confirmarEliminar');
+            if (btnEliminar) {
+                btnEliminar.onclick = () => {
+                    window.location.href = `/juegos/eliminar/${juegoId}/`;
+                };
+            }
             // Manejar el clic fuera del contenido del modal para cerrarlo
             // si hacemos clic fuera del contenido del modal, se cierra
             window.onclick = (event) => {
