@@ -46,4 +46,4 @@ def editarJuego(request, juego_id):
                 Fotos_Juegos.objects.create(juego=juego, url=foto_juego_url) # creamos la foto si no existe
         juego.save() # guardamos los cambios
         return redirect('mostrar_juegos') # redirigimos a la lista de juegos
-    return render(request, 'admin/editar_juego.html', {'juego': juego})
+    return render(request, 'admin/editarJuego.html', {'juego': juego}) # renderizamos el template de editar juego
