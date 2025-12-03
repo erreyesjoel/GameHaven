@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404 # importamos re
 from juegos.models import Juego # importamos el modelo
 from plataformas.models import Plataforma # importamos el modelo
 from django.contrib.auth.decorators import login_required # para proteger las vistas
+from categorias.models import Categoria # importamos el modelo Categoria
 
 # Create your views here.
 # renderizar juegos.html y funcion para devolver los juegos
@@ -22,6 +23,7 @@ def eliminarJuego(request, juego_id):
 # def para editar juego
 def editarJuego(request, juego_id):
     juego = get_object_or_404(Juego, id=juego_id) # buscamos juego por id
+    categorias = Categoria.objects.all()  # obtenemos todas las categorias
     if request.method == 'POST':
         # obtenemos todos los datos del juego
         juego.titulo = request.POST.get('titulo', juego.titulo)
@@ -33,7 +35,6 @@ def editarJuego(request, juego_id):
         categoria_id = request.POST.get('categoria')
         foto_juego_url = request.POST.get('foto_juego_url') # obtenemos la url de la foto del juego
         if categoria_id:
-            from categorias.models import Categoria
             juego.categoria = get_object_or_404(Categoria, id=categoria_id)
         # actualizar la foto del juego si se ha enviado una nueva url
         if foto_juego_url:
@@ -46,4 +47,4 @@ def editarJuego(request, juego_id):
                 Fotos_Juegos.objects.create(juego=juego, url=foto_juego_url) # creamos la foto si no existe
         juego.save() # guardamos los cambios
         return redirect('mostrar_juegos') # redirigimos a la lista de juegos
-    return render(request, 'admin/editarJuego.html', {'juego': juego}) # renderizamos el template de editar juego
+    return render(request, 'admin/editarJuego.html', {'juego': juego, 'categorias': categorias}) # renderizamos el template de editar juego
