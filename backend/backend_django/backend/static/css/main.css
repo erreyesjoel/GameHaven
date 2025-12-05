@@ -391,7 +391,7 @@ ya que el header es vertical a la izquierda */
     display: none;
   }
 }
-.editar-juego-form {
+.juego-formulario {
   display: flex;
   position: relative;
   top: 100px;
@@ -408,7 +408,7 @@ ya que el header es vertical a la izquierda */
   box-sizing: border-box;
 }
 
-.editar-juego-form-header {
+.juego-formulario-header {
   display: flex;
   align-items: center;
   padding: 20px;

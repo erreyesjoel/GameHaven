@@ -1,6 +1,6 @@
 @use 'variables' as vars;
 
-.editar-juego-form {
+.juego-formulario {
   display: flex;
   position: relative;
   top: 100px; // para bajar el formulario, en este caso, para que se pueda "centrar" mejor en la página
@@ -18,7 +18,7 @@
 }
 
 // Header del formulario
-.editar-juego-form-header {
+.juego-formulario-header {
   display: flex;
   align-items: center;
   padding: 20px;  // para que baje un poco el contenido
