@@ -29,7 +29,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_lanzamiento">Fecha de lanzamiento:</label>
-        <input type="date" id="fecha_lanzamiento" name="fecha_lanzamiento" value="{{ juego.fecha_lanzamiento }}" required>
+        <input type="date" id="fecha_lanzamiento" name="fecha_lanzamiento" value="{{ juego.fecha_lanzamiento|date:'Y-m-d' }}" required>
       </div>
     </div>
     <div class="form-row">
