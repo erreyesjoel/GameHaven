@@ -48,3 +48,29 @@ def editarJuego(request, juego_id):
         juego.save() # guardamos los cambios
         return redirect('mostrar_juegos') # redirigimos a la lista de juegos
     return render(request, 'admin/editarJuego.html', {'juego': juego, 'categorias': categorias}) # renderizamos el template de editar juego
+
+# def para crear juego
+@login_required
+def crearJuego(request):
+    if request.method == 'POST':
+        # obtenemos los datos del formulario
+        titulo = request.POST.get('titulo')
+        descripcion = request.POST.get('descripcion')
+        precio = request.POST.get('precio')
+        stock = request.POST.get('stock')
+        fecha_lanzamiento = request.POST.get('fecha_lanzamiento')
+        pegi = request.POST.get('pegi')
+        categoria_id = request.POST.get('categoria')
+        categoria = get_object_or_404(Categoria, id=categoria_id)
+        juego = Juego.objects.create(
+            titulo=titulo,
+            descripcion=descripcion,
+            precio=precio,
+            stock=stock,
+            fecha_lanzamiento=fecha_lanzamiento,
+            pegi=pegi,
+            categoria=categoria
+        )
+        return redirect('mostrar_juegos') # redirigimos a la lista de juegos
+    categorias = Categoria.objects.all()  # obtenemos todas las categorias
+    return render(request, 'admin/crearJuego.html', {'categorias': categorias}) # renderizamos el template de crear juego

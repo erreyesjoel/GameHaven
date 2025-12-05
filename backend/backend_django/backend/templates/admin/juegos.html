@@ -48,7 +48,7 @@
           /juegos -> app 'juegos' (urls.py principal incluye juegos.urls)
           /editar/<id>/ -> path definido en juegos/urls.py para editar un juego concreto -->
          <!-- Icono Editar -->
-            <a href="/juegos/editar/{{ juego.id }}/" title="Editar">
+            <a href="/juegos/editar-juego/{{ juego.id }}/" title="Editar">
               <svg class="icon-action" width="24" height="24">
                 <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
               </svg>
