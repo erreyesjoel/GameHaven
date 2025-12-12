@@ -40,6 +40,12 @@ $table-header-bg: vars.$azul-primario;
   color: vars.$accent;
 }
 
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
 .table-app .table-title {
   display: inline-block;
   max-width: vars.$juego-titulo-max-width;
