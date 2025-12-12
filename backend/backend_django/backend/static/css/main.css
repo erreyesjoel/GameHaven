@@ -477,6 +477,10 @@ textarea {
   justify-content: center;
 }
 
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
 .modal-eliminar {
   display: none;
   position: fixed;

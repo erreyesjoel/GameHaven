@@ -87,3 +87,8 @@ textarea {
     display: flex;
     justify-content: center;
 }
+
+// Para que un .form-group ocupe toda la fila si se le añade la clase .full-width
+.form-group.full-width {
+  flex: 1 1 100%;
+}
