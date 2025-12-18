@@ -7,5 +7,7 @@ incluyendo el @import url de css */
 @use 'global'; // archivo de estilos globales, como body (espacios arriba, etc)
 @use 'juegos';
 @use 'tablas';
+@use 'formularios';
+@use 'components/modales';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 

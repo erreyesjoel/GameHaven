@@ -1,5 +1,5 @@
-$fuente-principal: 'Montserrat', sans-serif;
+@use 'variables' as vars;
 
 body, .login-container {
-  font-family: $fuente-principal;
+  font-family: vars.$fuente-principal;
 }

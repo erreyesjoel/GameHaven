@@ -1,0 +1,94 @@
+@use 'variables' as vars;
+
+.juego-formulario {
+  display: flex;
+  position: relative;
+  top: 100px; // para bajar el formulario, en este caso, para que se pueda "centrar" mejor en la página
+  flex-direction: column;
+  gap: 18px;
+  font-family: vars.$fuente-principal;
+  background: vars.$bg;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 52, 132, 0.08);
+  color: vars.$accent; // color de texto principal
+  max-width: 700px; // ancho fijo para el formulario
+  width: 100%; // ocupa todo el ancho disponible hasta el max-width
+  box-sizing: border-box; // incluye el padding en el ancho
+}
+
+// Header del formulario
+.juego-formulario-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;  // para que baje un poco el contenido
+  gap: 16px; // espacio entre icono y título
+  margin-bottom: 24px;
+  color: vars.$azul-primario; // color del header
+}
+
+// Agrupación de campos en filas de dos
+.form-row {
+  display: flex;
+  gap: 24px; // espacio entre los dos campos
+  margin-bottom: 12px;
+}
+
+.form-group {
+  flex: 1; // cada grupo ocupa la mitad del ancho
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: vars.$azul-primario;
+  margin-bottom: 2px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid vars.$border;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: vars.$fuente-principal;
+  color: vars.$accent; // color de texto en los campos
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  resize: none; // para que no se pueda redimensionar el textarea
+}
+
+.btn-enviar-formulario {
+  background-color: vars.$azul-primario;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer; // para que se vea que es clickeable
+  font-family: vars.$fuente-principal;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 18px;
+}
+
+.btn-enviar-formulario:hover {
+  background-color: darken(vars.$azul-primario, 10%);
+}
+
+.container-formulario {
+    display: flex;
+    justify-content: center;
+}
+
+// Para que un .form-group ocupe toda la fila si se le añade la clase .full-width
+.form-group.full-width {
+  flex: 1 1 100%;
+}

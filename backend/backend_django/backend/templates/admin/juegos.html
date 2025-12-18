@@ -3,15 +3,22 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <div class="main-content">
   <div class="table-wrapper">
-    <h1>Juegos</h1>
+    <div class="table-header">
+      <h1>Juegos</h1>
+      <a href="{% url 'crear_juego' %}" class="btn-nuevo">
+        Nuevo juego
+      </a>
+    </div>
     <table class="table-app">
       <thead>
         <tr>
           <th>Título</th>
           <th>Descripción</th>
           <th>Categoría</th>
+          <th>PEGI</th>
           <th>Plataformas</th>
           <th>Foto</th>
+          <th>Acciones</th> <!-- Nueva columna para acciones -->
         </tr>
       </thead>
       <tbody>
@@ -20,6 +27,7 @@
           <td><span class="table-title">{{ juego.titulo }}</span></td>
           <td>{{ juego.descripcion }}</td>
           <td>{{ juego.categoria.get_nombre_categoria_display }}</td>
+          <td>{{ juego.pegi }}</td>
           <td class="table-platforms">
             {% for jp in juego.juegos_plataformas_set.all %}
             {{ jp.plataforma.get_tipo_display }}{% if not forloop.last %}, {% endif %}
@@ -32,7 +40,6 @@
             {% if foto %}
             {% if foto.url %}
             <img src="{{ foto.url }}" alt="Foto de {{ juego.titulo }}" width="80"><br>
-            <small>{{ foto.url }}</small>
             {% else %}
             Sin foto (no hay URL)
             {% endif %}
@@ -41,9 +48,35 @@
             {% endif %}
           {% endwith %}
           </td>
+          <td class="table-actions">
+           <!-- Enlace al formulario de edición del juego.
+          /juegos -> app 'juegos' (urls.py principal incluye juegos.urls)
+          /editar/<id>/ -> path definido en juegos/urls.py para editar un juego concreto -->
+         <!-- Icono Editar -->
+            <a href="/juegos/editar-juego/{{ juego.id }}/" title="Editar">
+              <svg class="icon-action" width="24" height="24">
+                <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
+              </svg>
+            </a>
+            <!-- Icono Eliminar -->
+            <a href="#" title="Eliminar" class="delete-link" data-id="{{ juego.id }}">
+              <svg class="icon-action trash" width="24" height="24">
+                <use xlink:href="{% static 'icons/sprite.svg' %}#trash-delete"></use>
+              </svg>
+            </a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+  {% include 'components/modalEliminar.html' %}
+  <script src="{% static 'js/Modal.js' %}"></script>
 </div>
+<!--
+  El campo 'nombre_categoria' en el modelo Categoria es un choices.
+  Por eso, para mostrar el nombre legible (por ejemplo, "Acción" en vez de "ACCION"),
+  se usa {{ juego.categoria.get_nombre_categoria_display }}.
+  Si usas {{ juego.categoria.nombre_categoria }}, verás el valor interno (en mayúsculas).
+  Los choices permiten definir valores internos y nombres bonitos para mostrar en la web.
+-->

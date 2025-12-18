@@ -29,15 +29,18 @@ def login_template(request):
                 else:
                     # si el usuario no es admin, mostramos mensaje de error usando messages
                     messages.error(request, "No tienes permisos para acceder a esta zona.")
-                    return redirect('login_template')  # redirigir para evitar el reenvío del formulario
+                    # renderizamos el template directamente para mantener el email en el input
+                    return render(request, 'autenticacion/login.html')
             else:
                 # si las credenciales no son válidas, mostramos mensaje de error usando messages
                 messages.error(request, "Credenciales inválidas. Inténtalo de nuevo.")
-                return redirect('login_template')  # redirigir para evitar el reenvío del formulario
+                # renderizamos el template directamente para mantener el email en el input
+                return render(request, 'autenticacion/login.html')
         except ModeloUsuarioModificado.DoesNotExist:
             # si el usuario no existe, mostramos mensaje de error usando messages
             messages.error(request, "Credenciales inválidas. Inténtalo de nuevo.")
-            return redirect('login_template')  # redirigir para evitar el reenvío del formulario
+            # renderizamos el template directamente para mantener el email en el input
+            return render(request, 'autenticacion/login.html')
     # si no es post, renderizamos el template de login
     return render(request, 'autenticacion/login.html')
 

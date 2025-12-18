@@ -1,0 +1,82 @@
+@use '../variables' as vars;
+
+.modal-eliminar {
+    display: none; // Ocultar el modal por defecto
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+}
+
+.modal-eliminar-blur {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.2); // oscurece un poco el fondo
+    z-index: 1;
+}
+
+.texto-modal {
+    font-family: vars.$fuente-principal;
+    font-size: 16px;
+    color: vars.$accent;
+    white-space: nowrap; // para que no se corte el texto
+    margin-bottom: 20px;
+}
+.modal-eliminar-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 420px; // mas anchura, para que el nowrap no afecte tanto, y no se salga el texto del div
+    max-width: 90%;
+    z-index: 2;
+}
+
+.modal-eliminar-buttons {
+    display: grid; // para poder usar las herramientas de grid
+    grid-template-columns: 2fr 2fr; // para que los botones se pongan uno al lado del otro
+    gap: 10px; // espacio entre los botones
+}
+.btn-eliminar-modal {
+    background-color: vars.$azul-primario;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer; // para que se vea que es clickeable
+    font-family: vars.$fuente-principal;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-eliminar-modal:hover {
+    background-color: darken(vars.$azul-primario, 10%);
+}
+
+.btn-cancelar-modal {
+    background-color: #e5e7eb;
+    color: vars.$accent;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: vars.$fuente-principal;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar-modal:hover {
+    background-color: darken(#e5e7eb, 10%);
+}
+
+.h2-modal-eliminar {
+    text-align: center;
+}
