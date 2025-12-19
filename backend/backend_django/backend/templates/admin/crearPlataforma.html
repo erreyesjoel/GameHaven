@@ -2,3 +2,20 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <h1>Crear Plataforma</h1>
+<div class="main-content">
+    <div class="container-formulario">
+        <form class="plataforma-formulario" method="POST" action="">
+            {% csrf_token %}
+            {% if error %}
+              <div class="form-error">{{ error }}</div>
+            {% endif %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tipo">Tipo de Plataforma:</label>
+                    <input type="text" id="tipo" name="tipo" placeholder="Introduce el tipo de plataforma" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-guardar">Crear Plataforma</button>
+        </form>
+    </div>
+</div>
