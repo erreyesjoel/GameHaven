@@ -13,6 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Tipo</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,12 +21,25 @@
                 <tr>
                     <td>{{ plataforma.id }}</td>
                     <td>{{ plataforma.get_tipo_display }}</td>
+                    <td class="table-actions">
+                        <a href="{% url 'editar_plataforma' plataforma.id %}" title="Editar">
+                            <svg class="icon-action" width="24" height="24">
+                                <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
+                            </svg>
+                        </a>
+                        <a href="/plataformas/eliminar/{{ plataforma.id }}/" title="Eliminar">
+                            <svg class="icon-action trash" width="24" height="24">
+                                <use xlink:href="{% static 'icons/sprite.svg' %}#trash-delete"></use>
+                            </svg>
+                        </a>
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="2">No hay plataformas disponibles.</td>
+                    <td colspan="3">No hay plataformas disponibles.</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+    </div>
 </div>
