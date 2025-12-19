@@ -24,13 +24,18 @@ def crearPlataforma(request):
 @login_required
 # def para editar plataforma
 def editarPlataforma(request, plataforma_id):
-    plataforma = get_object_or_404(Plataforma, id=plataforma_id) # buscamos plataforma por id
-    plataformas = Plataforma.objects.all() # obtenemos todas las plataformas, y las mostramos en la vista / pagina
+    plataforma = get_object_or_404(Plataforma, id=plataforma_id)
+    error = None
     if request.method == 'POST':
-        plataforma.tipo = request.POST.get('tipo', plataforma.tipo) # obtenemos el tipo de plataforma
-        plataforma.save() # guardamos los cambios
-        return redirect('mostrar_plataformas') # redirigimos a la lista de plataformas
-    return render(request, 'admin/editarPlataforma.html', 
-    {'plataforma': plataforma, 
-    'plataformas': plataformas
+        nuevo_tipo = request.POST.get('tipo', plataforma.tipo)
+        # Validar que no exista otra plataforma con ese tipo (ignorando mayúsculas/minúsculas)
+        if Plataforma.objects.filter(tipo__iexact=nuevo_tipo).exclude(id=plataforma.id).exists():
+            error = "Ya existe una plataforma con ese nombre."
+        else:
+            plataforma.tipo = nuevo_tipo
+            plataforma.save()
+            return redirect('mostrar_plataformas')
+    return render(request, 'admin/editarPlataforma.html', {
+        'plataforma': plataforma,
+        'error': error
     })
