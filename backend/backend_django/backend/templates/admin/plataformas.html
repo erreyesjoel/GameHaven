@@ -27,7 +27,9 @@
                                 <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
                             </svg>
                         </a>
-                        <a href="/plataformas/eliminar/{{ plataforma.id }}/" title="Eliminar">
+                        <!-- Se abrira un modal para eliminar 
+                         guardamos el id del elemento en el DOM, en este caso id plataforma -->
+                        <a href="#" title="Eliminar" class="delete-link" data-id="{{ plataforma.id }}" data-tipo="plataformas">
                             <svg class="icon-action trash" width="24" height="24">
                                 <use xlink:href="{% static 'icons/sprite.svg' %}#trash-delete"></use>
                             </svg>
@@ -41,5 +43,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% include 'components/modalEliminar.html' %}
+        <script src="{% static 'js/Modal.js' %}"></script>
     </div>
 </div>

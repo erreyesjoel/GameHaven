@@ -1,13 +1,15 @@
 class Modal {
     // metodo para mostrar el modal de eliminar
-    mostrarModalEliminar = (juegoId) => {
+    // ahora es reutilizable para cualquier tipo (juegos, plataformas, etc.)
+    mostrarModalEliminar = (id, tipo) => {
         const modalEliminar = document.querySelector('.modal-eliminar');
         // si le das a eliminar, se muestra el modal
         // esta none por defecto en css
         // pasa de none a block (none es oculto, block es visible)
         if (modalEliminar) {
             modalEliminar.style.display = 'block';
-            modalEliminar.dataset.juegoId = juegoId; // guardamos el id del juego a eliminar
+            modalEliminar.dataset.id = id; // guardamos el id del elemento a eliminar
+            modalEliminar.dataset.tipo = tipo; // guardamos el tipo (juegos, plataformas...)
 
             // Manejar el clic en el botón de cancelar
             // cojo el boton de cancelar con el dom
@@ -20,13 +22,13 @@ class Modal {
                 };
             }
 
-            // Logica para que funcione eliminar juego del backend
-            // Al hacer clic en "Eliminar", redirige a la vista eliminarJuego
+            // Logica para que funcione eliminar del backend
+            // Al hacer clic en "Eliminar", redirige a la vista correspondiente
             // boton en html con id confirmarEliminar
             const btnEliminar = document.querySelector('#confirmarEliminar');
             if (btnEliminar) {
                 btnEliminar.onclick = () => {
-                    window.location.href = `/juegos/eliminar/${juegoId}/`;
+                    window.location.href = `/${tipo}/eliminar/${id}/`;
                 };
             }
             // Manejar el clic fuera del contenido del modal para cerrarlo
@@ -51,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            // llamamos al método de la clase y le pasamos el id del juego
-            modal.mostrarModalEliminar(link.dataset.id);
+            // llamamos al método de la clase y le pasamos el id y el tipo
+            // tipo: 'juegos', 'plataformas', etc. (debe estar en data-tipo en el HTML)
+            const tipo = link.dataset.tipo;
+            modal.mostrarModalEliminar(link.dataset.id, tipo);
         });
     });
 });

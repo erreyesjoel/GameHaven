@@ -54,3 +54,10 @@ def editarPlataforma(request, plataforma_id):
         'plataforma': plataforma,
         'error': error
     })
+
+@login_required
+# def para eliminar una plataforma
+def eliminarPlataforma(request, plataforma_id):
+    plataforma = get_object_or_404(Plataforma, id=plataforma_id)
+    plataforma.delete() # eliminamos la plataforma
+    return redirect('mostrar_plataformas') # redirigimos a la lista de plataformas
