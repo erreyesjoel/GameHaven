@@ -1,0 +1,23 @@
+{% include 'components/header/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="main-content">
+    <div class="container-formulario">
+        <form class="plataforma-formulario" method="POST" action="">
+            {% csrf_token %}
+            <div class="plataforma-formulario-header">
+                <h1>Editar Plataforma - ID {{ plataforma.id }}</h1>
+            </div>
+            {% if error %}
+              <div class="form-error">{{ error }}</div>
+            {% endif %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tipo">Tipo de Plataforma:</label>
+                    <input type="text" id="tipo" name="tipo" value="{{ plataforma.tipo }}" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-guardar">Guardar Cambios</button>
+        </form>
+    </div>
+</div>

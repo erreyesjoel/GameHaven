@@ -8,6 +8,7 @@
         <a href="#" class="nav-link{% if active_page == 'usuarios' %} active{% endif %}">Usuarios</a>
         <a href="{% url 'mostrar_juegos' %}" class="nav-link">Juegos</a>
         <a href="#" class="nav-link">Ajustes</a>
+        <a href="{% url 'mostrar_plataformas' %}" class="nav-link{% if active_page == 'plataformas' %} active{% endif %}">Plataformas</a>
     </nav>
     <!-- Acciones de usuario y logout abajo del todo -->
     <div class="usuario-acciones-container">
