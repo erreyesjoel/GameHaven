@@ -25,4 +25,5 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path('juegos/', include('juegos.urls')), # incluimos las urls de la app juegos, juegos (app) urls (juegos/urls.py)
     path('plataformas/', include('plataformas.urls')), # incluimos las urls de la app plataformas, plataformas (app) urls (plataformas/urls.py)
+    path('usuarios/', include('usuarios.urls')), # incluimos las urls de la app usuarios, usuarios (app) urls (usuarios/urls.py)
 ]
