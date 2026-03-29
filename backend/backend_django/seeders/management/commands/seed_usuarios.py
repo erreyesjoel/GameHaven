@@ -1,32 +1,55 @@
-from django.core.management.base import BaseCommand  # Importa la clase base para comandos personalizados de Django
-from usuarios.models import ModeloUsuarioModificado  # Importa el modelo de usuario personalizado
+from django.core.management.base import BaseCommand
+from usuarios.models import ModeloUsuarioModificado
 
 class Command(BaseCommand):
-    help = 'Crea el usuario admin inicial y un usuario normal'  # Descripción del comando, aparece con --help
+    help = 'Crea usuarios iniciales para pruebas (admin + varios usuarios normales)'
 
     def handle(self, *args, **options):
-        # Verifica si el usuario 'havengame' ya existe
-        if not ModeloUsuarioModificado.objects.filter(username='havengame').exists():
-            # Si no existe, lo crea con los datos especificados y rol ADMIN
-            ModeloUsuarioModificado.objects.create_user(
-                username='havengame',
-                password='hav#nGame!',
-                email='havengame@gmail.com',
-                rol=ModeloUsuarioModificado.Roles.ADMIN
-            )
-            self.stdout.write(self.style.SUCCESS("Usuario 'havengame' creado exitosamente."))
-        else:
-            self.stdout.write(self.style.WARNING("El usuario 'havengame' ya existe."))
 
-        # Verifica si el usuario 'usuario1' ya existe
-        if not ModeloUsuarioModificado.objects.filter(username='usuario1').exists():
-            # Si no existe, lo crea con los datos especificados y rol USER
-            ModeloUsuarioModificado.objects.create_user(
-                username='usuario1',
-                password='usuario123',
-                email='usuario1@gmail.com',
-                rol=ModeloUsuarioModificado.Roles.USER
-            )
-            self.stdout.write(self.style.SUCCESS("Usuario 'usuario1' creado exitosamente."))
-        else:
-            self.stdout.write(self.style.WARNING("El usuario 'usuario1' ya existe."))
+        usuarios = [
+            # ADMIN
+            {
+                'username': 'havengame',
+                'password': 'hav#nGame!',
+                'email': 'havengame@gmail.com',
+                'rol': ModeloUsuarioModificado.Roles.ADMIN
+            },
+
+            # USUARIOS NORMALES (rol por defecto)
+            {
+                'username': 'usuario1',
+                'password': 'usuario123',
+                'email': 'usuario1@gmail.com',
+            },
+            {
+                'username': 'stu',
+                'password': 'stu123!',
+                'email': 'stu@gmail.com',
+            },
+            {
+                'username': 'maria',
+                'password': 'maria123!',
+                'email': 'maria@gmail.com',
+            },
+            {
+                'username': 'carlos',
+                'password': 'carlos123!',
+                'email': 'carlos@gmail.com',
+            }
+        ]
+
+        for usuario in usuarios:
+            if not ModeloUsuarioModificado.objects.filter(username=usuario['username']).exists():
+                # Si tiene rol, lo pasamos. Si no, dejamos que Django use el default.
+                rol = usuario.get('rol', ModeloUsuarioModificado.Roles.USER)
+
+                ModeloUsuarioModificado.objects.create_user(
+                    username=usuario['username'],
+                    password=usuario['password'],
+                    email=usuario['email'],
+                    rol=rol
+                )
+
+                self.stdout.write(self.style.SUCCESS(f"Usuario '{usuario['username']}' creado exitosamente."))
+            else:
+                self.stdout.write(self.style.WARNING(f"El usuario '{usuario['username']}' ya existe."))
