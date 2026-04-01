@@ -5,4 +5,4 @@ from usuarios.models import ModeloUsuarioModificado
 # def para devolver los usuarios de la base de datos
 def listar_usuarios(request):
     lista_usuarios = ModeloUsuarioModificado.objects.all()
-    return render(request, 'admin/usuarios.html', {'lista_usuarios': lista_usuarios})
+    return render(request, 'admin/usuarios.html', {'lista_usuarios': lista_usuarios, 'active_page': 'usuarios'})

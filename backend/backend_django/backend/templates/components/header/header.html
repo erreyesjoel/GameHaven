@@ -6,7 +6,7 @@
     <nav class="nav-vertical">
         <a href="{% url 'admin_dashboard' %}" class="nav-link{% if active_page == 'dashboard' %} active{% endif %}">Dashboard</a>
         <a href="{% url 'listar_usuarios' %}" class="nav-link{% if active_page == 'usuarios' %} active{% endif %}">Usuarios</a>
-        <a href="{% url 'mostrar_juegos' %}" class="nav-link">Juegos</a>
+        <a href="{% url 'mostrar_juegos' %}" class="nav-link{%if active_page == 'juegos' %} active{% endif %}">Juegos</a>
         <a href="#" class="nav-link">Ajustes</a>
         <a href="{% url 'mostrar_plataformas' %}" class="nav-link{% if active_page == 'plataformas' %} active{% endif %}">Plataformas</a>
     </nav>

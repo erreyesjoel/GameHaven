@@ -8,7 +8,7 @@ import re
 @login_required
 def mostrarPlataformas(request):
     plataformas = Plataforma.objects.all() # obtener TODAS las plataformas
-    return render(request, 'admin/plataformas.html', {'plataformas': plataformas})
+    return render(request, 'admin/plataformas.html', {'plataformas': plataformas, 'active_page': 'plataformas'})
 
 @login_required
 # def para crear plataforma
