@@ -26,4 +26,5 @@ urlpatterns = [
     path('plataformas/', include('plataformas.urls')), # incluimos las urls de la app plataformas, plataformas (app) urls (plataformas/urls.py)
     path('usuarios/', include('usuarios.urls')), # incluimos las urls de la app usuarios, usuarios (app) urls (usuarios/urls.py)
     path('dashboard/', include('dashboard.urls')),
+    path('categorias/', include('categorias.urls')),
 ]

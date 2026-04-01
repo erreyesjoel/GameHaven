@@ -9,6 +9,7 @@
         <a href="{% url 'mostrar_juegos' %}" class="nav-link{%if active_page == 'juegos' %} active{% endif %}">Juegos</a>
         <a href="#" class="nav-link">Ajustes</a>
         <a href="{% url 'mostrar_plataformas' %}" class="nav-link{% if active_page == 'plataformas' %} active{% endif %}">Plataformas</a>
+        <a href="{% url 'listar_categorias' %}" class="nav-link{% if active_page == 'categorias' %} active{% endif %}">Categorías</a>
     </nav>
     <!-- Acciones de usuario y logout abajo del todo -->
     <div class="usuario-acciones-container">
