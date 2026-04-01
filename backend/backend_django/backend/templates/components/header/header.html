@@ -4,7 +4,7 @@
 <header class="header-vertical">
     <h1>GameHaven</h1>
     <nav class="nav-vertical">
-        <a href="{% url 'admin_dashboard_template' %}" class="nav-link{% if active_page == 'dashboard' %} active{% endif %}">Dashboard</a>
+        <a href="{% url 'admin_dashboard' %}" class="nav-link{% if active_page == 'dashboard' %} active{% endif %}">Dashboard</a>
         <a href="{% url 'listar_usuarios' %}" class="nav-link{% if active_page == 'usuarios' %} active{% endif %}">Usuarios</a>
         <a href="{% url 'mostrar_juegos' %}" class="nav-link">Juegos</a>
         <a href="#" class="nav-link">Ajustes</a>
