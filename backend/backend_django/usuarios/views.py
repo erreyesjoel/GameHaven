@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from usuarios.models import ModeloUsuarioModificado
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # def para devolver los usuarios de la base de datos
+@login_required
 def listar_usuarios(request):
     lista_usuarios = ModeloUsuarioModificado.objects.all()
-    return render(request, 'admin/usuarios.html', {'lista_usuarios': lista_usuarios})
+    return render(request, 'admin/usuarios.html', {'lista_usuarios': lista_usuarios, 'active_page': 'usuarios'})

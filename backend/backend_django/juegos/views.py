@@ -10,7 +10,7 @@ from categorias.models import Categoria # importamos el modelo Categoria
 def mostrarJuegos(request):
     juegos = Juego.objects.all() # obtenemos todos los juegos
     plataformas = Plataforma.objects.all() # obtenemos todas las plataformas
-    return render(request, 'admin/juegos.html', {'juegos': juegos, 'plataformas': plataformas})
+    return render(request, 'admin/juegos.html', {'juegos': juegos, 'plataformas': plataformas, 'active_page': 'juegos'})
 
 @login_required
 # funcion (def) para eliminar un juego 

@@ -37,7 +37,7 @@
         <label for="categoria">Categoría:</label>
         <select id="categoria" name="categoria" required>
           {% for categoria in categorias %}
-            <option value="{{ categoria.id }}" {% if juego.categoria.id == categoria.id %}selected{% endif %}>{{ categoria.get_nombre_categoria_display }}</option>
+            <option value="{{ categoria.id }}" {% if juego.categoria.id == categoria.id %}selected{% endif %}>{{ categoria.nombre_categoria }}</option>
           {% endfor %}
         </select>
       </div>

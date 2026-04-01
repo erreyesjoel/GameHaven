@@ -26,7 +26,7 @@
         <tr>
           <td><span class="table-title">{{ juego.titulo }}</span></td>
           <td>{{ juego.descripcion }}</td>
-          <td>{{ juego.categoria.get_nombre_categoria_display }}</td>
+          <td>{{ juego.categoria.nombre_categoria }}</td>
           <td>{{ juego.pegi }}</td>
           <td class="table-platforms">
             {% for jp in juego.juegos_plataformas_set.all %}
@@ -73,10 +73,3 @@
   {% include 'components/modalEliminar.html' %}
   <script src="{% static 'js/Modal.js' %}"></script>
 </div>
-<!--
-  El campo 'nombre_categoria' en el modelo Categoria es un choices.
-  Por eso, para mostrar el nombre legible (por ejemplo, "Acción" en vez de "ACCION"),
-  se usa {{ juego.categoria.get_nombre_categoria_display }}.
-  Si usas {{ juego.categoria.nombre_categoria }}, verás el valor interno (en mayúsculas).
-  Los choices permiten definir valores internos y nombres bonitos para mostrar en la web.
--->

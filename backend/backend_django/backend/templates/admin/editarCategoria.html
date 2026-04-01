@@ -1,0 +1,23 @@
+{% include 'components/header/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<div class="main-content">
+    <div class="container-formulario">
+        <h1>Editar Categoría</h1>
+        <form class="plataforma-formulario" method="POST" action="">
+            {% csrf_token %}
+            {% if error %}
+              <div class="form-error">{{ error }}</div>
+            {% endif %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre_categoria">Nombre de la Categoría:</label>
+                    <input type="text" id="nombre_categoria" name="nombre_categoria" value="{{ categoria.nombre_categoria }}" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-guardar">Guardar Cambios</button>
+            <a href="{% url 'listar_categorias' %}" class="btn-cancelar" style="text-decoration: none; display: inline-block; margin-left: 10px; color: #666;">Cancelar</a>
+        </form>
+    </div>
+</div>

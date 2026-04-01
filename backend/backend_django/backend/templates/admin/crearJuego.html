@@ -33,7 +33,7 @@
         <label for="categoria">Categoría:</label>
         <select id="categoria" name="categoria" required>
           {% for categoria in categorias %}
-            <option value="{{ categoria.id }}">{{ categoria.get_nombre_categoria_display }}</option>
+            <option value="{{ categoria.id }}">{{ categoria.nombre_categoria }}</option>
           {% endfor %}
         </select>
       </div>
