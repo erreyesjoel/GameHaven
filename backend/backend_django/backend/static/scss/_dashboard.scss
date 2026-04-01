@@ -1,0 +1,347 @@
+@use 'variables' as vars;
+
+// ============================================================
+// Variables locales del dashboard
+// ============================================================
+$card-radius: 12px;
+$card-shadow: 0 4px 20px rgba(44, 52, 132, 0.10);
+$card-shadow-hover: 0 8px 32px rgba(44, 52, 132, 0.18);
+$stat-icon-size: 52px;
+$transition: all 0.25s ease;
+
+// Paleta de acento para cada tarjeta
+$color-usuarios: #2c3484; // azul principal
+$color-juegos: #1565c0; // azul jugoso
+$color-plataformas: #0097a7; // teal
+$color-categorias: #6a1b9a; // morado
+
+// ============================================================
+// Layout del dashboard
+// ============================================================
+.dashboard-page {
+    padding: 32px 40px;
+    min-height: 100vh;
+    background: #f4f6fb;
+}
+
+.dashboard-title {
+    font-family: vars.$fuente-principal;
+    font-size: 26px;
+    font-weight: 700;
+    color: vars.$azul-primario;
+    margin: 0 0 8px 0;
+}
+
+.dashboard-subtitle {
+    font-family: vars.$fuente-principal;
+    font-size: 15px;
+    color: vars.$muted;
+    margin: 0 0 36px 0;
+}
+
+// ============================================================
+// Grid de tarjetas de estadísticas
+// ============================================================
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: $card-radius;
+    box-shadow: $card-shadow;
+    padding: 28px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: $transition;
+    cursor: default;
+
+    // Banda de color arriba
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: $card-radius $card-radius 0 0;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $card-shadow-hover;
+    }
+
+    // Variantes de color
+    &.card-usuarios::before {
+        background: $color-usuarios;
+    }
+
+    &.card-juegos::before {
+        background: $color-juegos;
+    }
+
+    &.card-plataformas::before {
+        background: $color-plataformas;
+    }
+
+    &.card-categorias::before {
+        background: $color-categorias;
+    }
+}
+
+.stat-card__icon {
+    width: $stat-icon-size;
+    height: $stat-icon-size;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 28px;
+        height: 28px;
+        stroke: #ffffff;
+        fill: none;
+        stroke-width: 1.7;
+    }
+
+    .card-usuarios & {
+        background: $color-usuarios;
+    }
+
+    .card-juegos & {
+        background: $color-juegos;
+    }
+
+    .card-plataformas & {
+        background: $color-plataformas;
+    }
+
+    .card-categorias & {
+        background: $color-categorias;
+    }
+}
+
+.stat-card__label {
+    font-family: vars.$fuente-principal;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: vars.$muted;
+}
+
+.stat-card__value {
+    font-family: vars.$fuente-principal;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1;
+    color: vars.$accent;
+}
+
+.stat-card__link {
+    font-family: vars.$fuente-principal;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto; // empuja el link hacia el fondo, separando el valor del número
+    transition: gap 0.2s;
+
+    .card-usuarios & {
+        color: $color-usuarios;
+    }
+
+    .card-juegos & {
+        color: $color-juegos;
+    }
+
+    .card-plataformas & {
+        color: $color-plataformas;
+    }
+
+    .card-categorias & {
+        color: $color-categorias;
+    }
+
+    &:hover {
+        gap: 8px;
+        text-decoration: underline;
+    }
+
+    svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+    }
+}
+
+// ============================================================
+// Sección de accesos rápidos
+// ============================================================
+.dashboard-section-title {
+    font-family: vars.$fuente-principal;
+    font-size: 18px;
+    font-weight: 700;
+    color: vars.$azul-primario;
+    margin: 0 0 16px 0;
+}
+
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.quick-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: vars.$azul-primario;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-family: vars.$fuente-principal;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(44, 52, 132, 0.14);
+    transition: $transition;
+    cursor: pointer;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 1.8;
+    }
+
+    &:hover {
+        background: darken(vars.$azul-primario, 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(44, 52, 132, 0.22);
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &.secondary {
+        background: #ffffff;
+        color: vars.$azul-primario;
+        border: 2px solid vars.$azul-primario;
+        box-shadow: none;
+
+        svg {
+            stroke: vars.$azul-primario;
+        }
+
+        &:hover {
+            background: lighten(vars.$azul-primario, 52%);
+            transform: translateY(-2px);
+        }
+    }
+
+    // Dentro de una stat-card, botón ocupa todo el ancho y usa el color de la tarjeta
+    .card-usuarios & {
+        &.secondary {
+            color: $color-usuarios;
+            border-color: $color-usuarios;
+
+            svg {
+                stroke: $color-usuarios;
+            }
+
+            &:hover {
+                background: rgba($color-usuarios, 0.07);
+            }
+        }
+    }
+
+    .card-juegos & {
+        &.secondary {
+            color: $color-juegos;
+            border-color: $color-juegos;
+
+            svg {
+                stroke: $color-juegos;
+            }
+
+            &:hover {
+                background: rgba($color-juegos, 0.07);
+            }
+        }
+    }
+
+    .card-plataformas & {
+        &.secondary {
+            color: $color-plataformas;
+            border-color: $color-plataformas;
+
+            svg {
+                stroke: $color-plataformas;
+            }
+
+            &:hover {
+                background: rgba($color-plataformas, 0.07);
+            }
+        }
+    }
+
+    .card-categorias & {
+        &.secondary {
+            color: $color-categorias;
+            border-color: $color-categorias;
+
+            svg {
+                stroke: $color-categorias;
+            }
+
+            &:hover {
+                background: rgba($color-categorias, 0.07);
+            }
+        }
+    }
+
+    // Dentro de stat-card: botón normal anclado al fondo
+    .stat-card & {
+        width: 90%;
+        margin-top: auto;
+        justify-content: center;
+        font-size: 13px;
+        padding: 10px 16px;
+        border-radius: 8px;
+    }
+}
+
+// ============================================================
+// Responsive
+// ============================================================
+@media (max-width: 900px) {
+    .dashboard-page {
+        padding: 20px 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
