@@ -22,7 +22,7 @@
         {% for categoria in categorias %}
         <tr>
           <td>{{ categoria.id }}</td>
-          <td>{{ categoria.get_nombre_categoria_display }}</td>
+          <td>{{ categoria.nombre_categoria }}</td>
           <td class="table-actions">
             <a href="{% url 'editar_categoria' categoria.id %}" title="Editar">
               <svg class="icon-action" width="24" height="24">

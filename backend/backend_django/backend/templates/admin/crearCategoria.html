@@ -12,13 +12,8 @@
             {% endif %}
             <div class="form-row">
                 <div class="form-group">
-                    <label for="nombre_categoria">Selecciona la Categoría:</label>
-                    <select id="nombre_categoria" name="nombre_categoria" required>
-                        <option value="" disabled selected>-- Elige una categoría --</option>
-                        {% for valor, etiqueta in opciones %}
-                            <option value="{{ valor }}">{{ etiqueta }}</option>
-                        {% endfor %}
-                    </select>
+                    <label for="nombre_categoria">Nombre de la Categoría:</label>
+                    <input type="text" id="nombre_categoria" name="nombre_categoria" placeholder="Ej: RPG, Acción, etc." required>
                 </div>
             </div>
             <button type="submit" class="btn-guardar">Crear Categoría</button>

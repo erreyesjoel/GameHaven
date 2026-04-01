@@ -13,13 +13,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="nombre_categoria">Nombre de la Categoría:</label>
-                    <select id="nombre_categoria" name="nombre_categoria" required>
-                        {% for valor, etiqueta in opciones %}
-                            <option value="{{ valor }}" {% if categoria.nombre_categoria == valor %}selected{% endif %}>
-                                {{ etiqueta }}
-                            </option>
-                        {% endfor %}
-                    </select>
+                    <input type="text" id="nombre_categoria" name="nombre_categoria" value="{{ categoria.nombre_categoria }}" required>
                 </div>
             </div>
             <button type="submit" class="btn-guardar">Guardar Cambios</button>
