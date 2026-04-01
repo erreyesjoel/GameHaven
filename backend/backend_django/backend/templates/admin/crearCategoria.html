@@ -1,0 +1,28 @@
+{% include 'components/header/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<div class="main-content">
+    <div class="container-formulario">
+        <h1>Crear Categoría</h1>
+        <form class="plataforma-formulario" method="POST" action="">
+            {% csrf_token %}
+            {% if error %}
+              <div class="form-error">{{ error }}</div>
+            {% endif %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre_categoria">Selecciona la Categoría:</label>
+                    <select id="nombre_categoria" name="nombre_categoria" required>
+                        <option value="" disabled selected>-- Elige una categoría --</option>
+                        {% for valor, etiqueta in opciones %}
+                            <option value="{{ valor }}">{{ etiqueta }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn-guardar">Crear Categoría</button>
+            <a href="{% url 'listar_categorias' %}" class="btn-cancelar" style="text-decoration: none; display: inline-block; margin-left: 10px; color: #666;">Cancelar</a>
+        </form>
+    </div>
+</div>
