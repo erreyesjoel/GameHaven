@@ -26,3 +26,10 @@ def editar_usuario(request, usuario_id):
         'roles': ModeloUsuarioModificado.Roles.choices,
         'active_page': 'usuarios'
     })
+
+@login_required
+def desactivar_usuario(request, usuario_id):
+    usuario = get_object_or_404(ModeloUsuarioModificado, id=usuario_id)
+    usuario.is_active = False
+    usuario.save()
+    return redirect('listar_usuarios')
