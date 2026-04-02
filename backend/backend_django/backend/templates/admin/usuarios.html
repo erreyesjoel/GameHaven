@@ -36,7 +36,7 @@
           <td>{{ usuario.is_active|yesno:"Activo,Inactivo" }}</td>
           <td class="table-actions">
             <!-- Icono Editar -->
-            <a href="/usuarios/{{ usuario.id }}/editar" title="Editar">
+            <a href="{% url 'editar_usuario' usuario.id %}" title="Editar">
               <svg class="icon-action" width="24" height="24">
                 <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
               </svg>
