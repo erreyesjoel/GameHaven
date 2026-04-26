@@ -875,4 +875,151 @@ textarea {
   text-align: center;
 }
 
+.password-reset-body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, #1a1c2c 0%, #4a192c 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.password-reset-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 450px;
+  animation: slideUp 0.6s ease-out;
+}
+.password-reset-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  background: linear-gradient(to right, #fff, #aaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.password-reset-container p {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+.password-reset-container .form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+.password-reset-container .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.password-reset-container .form-group .input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.password-reset-container .form-group .input-wrapper i {
+  position: absolute;
+  left: 15px;
+  color: #2c3484;
+  font-size: 1.1rem;
+}
+.password-reset-container .form-group .input-wrapper input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.password-reset-container .form-group .input-wrapper input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #2c3484;
+  box-shadow: 0 0 15px rgba(44, 52, 132, 0.3);
+}
+.password-reset-container .form-group .input-wrapper input::placeholder {
+  color: #666;
+}
+.password-reset-container .btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #2c3484;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.password-reset-container .btn-submit:hover {
+  background: rgb(50.375, 59.5340909091, 151.125);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.password-reset-container .btn-submit:active {
+  transform: translateY(0);
+}
+.password-reset-container .expired-message {
+  text-align: center;
+  padding: 20px;
+}
+.password-reset-container .expired-message .icon {
+  font-size: 3rem;
+  color: #ff4757;
+  margin-bottom: 15px;
+}
+.password-reset-container .expired-message h2 {
+  color: #ff4757;
+  margin-bottom: 10px;
+}
+.password-reset-container .expired-message .btn-secondary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.password-reset-container .expired-message .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .password-reset-container {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
