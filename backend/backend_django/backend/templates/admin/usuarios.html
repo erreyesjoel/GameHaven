@@ -5,7 +5,7 @@
   <div class="table-wrapper">
     <div class="table-header">
       <h1>Usuarios</h1>
-      <a href="/usuarios/crear" class="btn-nuevo">
+      <a href="{% url 'crear_usuario' %}" class="btn-nuevo">
         Nuevo usuario
       </a>
     </div>
@@ -13,9 +13,13 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Usuario</th>
           <th>Nombre</th>
+          <th>Apellido</th>
           <th>Email</th>
           <th>Rol</th>
+          <th>Ultimo inicio de sesion</th>
+          <th>Estado</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -24,11 +28,15 @@
         <tr>
           <td>{{ usuario.id }}</td>
           <td><span class="table-title">{{ usuario.username }}</span></td>
+          <td>{{ usuario.first_name|default:"Campo vacio" }}</td>
+          <td>{{ usuario.last_name|default:"Campo vacio" }}</td>
           <td>{{ usuario.email }}</td>
           <td>{{ usuario.rol }}</td>
+          <td>{{ usuario.last_login|date:"d/m/Y H:i:s"|default:"Nunca" }}</td>
+          <td>{{ usuario.is_active|yesno:"Activo,Inactivo" }}</td>
           <td class="table-actions">
             <!-- Icono Editar -->
-            <a href="/usuarios/{{ usuario.id }}/editar" title="Editar">
+            <a href="{% url 'editar_usuario' usuario.id %}" title="Editar">
               <svg class="icon-action" width="24" height="24">
                 <use xlink:href="{% static 'icons/sprite.svg' %}#pencil-edit"></use>
               </svg>

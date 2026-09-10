@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Categoria
 
+# login required para todas las vistas
 @login_required(login_url='/')
 def listar_categorias(request):
     categorias = Categoria.objects.all()

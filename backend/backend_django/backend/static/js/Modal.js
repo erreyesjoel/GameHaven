@@ -7,9 +7,24 @@ class Modal {
         // esta none por defecto en css
         // pasa de none a block (none es oculto, block es visible)
         if (modalEliminar) {
-            modalEliminar.style.display = 'block';
-            modalEliminar.dataset.id = id; // guardamos el id del elemento a eliminar
-            modalEliminar.dataset.tipo = tipo; // guardamos el tipo (juegos, plataformas...)
+            modalEliminar.style.display = 'block'; // muestra el modal
+            modalEliminar.dataset.id = id; // guarda el id del elemento
+            modalEliminar.dataset.tipo = tipo; // guarda el tipo del elemento
+
+            // Personalizar el texto según el tipo
+            const textoModal = modalEliminar.querySelector('.texto-modal');
+            const tituloModal = modalEliminar.querySelector('.h2-modal-eliminar');
+            const btnConfirmar = modalEliminar.querySelector('#confirmarEliminar');
+
+            if (tipo === 'usuarios') {
+                tituloModal.textContent = 'Confirmar baja';
+                textoModal.textContent = '¿Estás seguro de que deseas dar de baja a este usuario?';
+                btnConfirmar.textContent = 'Dar de baja';
+            } else {
+                tituloModal.textContent = 'Confirmar eliminación';
+                textoModal.textContent = '¿Estás seguro de que deseas eliminar este elemento?';
+                btnConfirmar.textContent = 'Eliminar';
+            }
 
             // Manejar el clic en el botón de cancelar
             // cojo el boton de cancelar con el dom

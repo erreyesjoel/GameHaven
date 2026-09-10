@@ -24,16 +24,22 @@ class Command(BaseCommand):
             {
                 'username': 'stu',
                 'password': 'stu123!',
+                'first_name': 'stu',
+                'last_name': 'macher',
                 'email': 'stu@gmail.com',
             },
             {
                 'username': 'maria',
                 'password': 'maria123!',
+                'first_name': 'maria',
+                'last_name': 'perez',
                 'email': 'maria@gmail.com',
             },
             {
                 'username': 'carlos',
                 'password': 'carlos123!',
+                'first_name': 'carlos',
+                'last_name': 'gonzalez',
                 'email': 'carlos@gmail.com',
             }
         ]
@@ -47,7 +53,9 @@ class Command(BaseCommand):
                     username=usuario['username'],
                     password=usuario['password'],
                     email=usuario['email'],
-                    rol=rol
+                    rol=rol,
+                    first_name=usuario.get('first_name', ''), # si no existe, se queda vacio
+                    last_name=usuario.get('last_name', '') # si no existe, se queda vacio
                 )
 
                 self.stdout.write(self.style.SUCCESS(f"Usuario '{usuario['username']}' creado exitosamente."))
