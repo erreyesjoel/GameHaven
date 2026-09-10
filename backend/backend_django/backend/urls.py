@@ -27,4 +27,5 @@ urlpatterns = [
     path('usuarios/', include('usuarios.urls')), # incluimos las urls de la app usuarios, usuarios (app) urls (usuarios/urls.py)
     path('dashboard/', include('dashboard.urls')),
     path('categorias/', include('categorias.urls')),
+    path('ajustes/', include('ajustes.urls')),
 ]

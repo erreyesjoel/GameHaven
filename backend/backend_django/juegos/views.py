@@ -1,6 +1,8 @@
+# pyrefly: ignore [missing-import]
 from django.shortcuts import render, redirect, get_object_or_404 # importamos render para renderizar templates y redirect para redirigir, get_object_or_404 para obtener objetos o devolver 404
 from juegos.models import Juego, Juegos_Plataformas # importamos el modelo
 from plataformas.models import Plataforma # importamos el modelo
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.decorators import login_required # para proteger las vistas
 from categorias.models import Categoria # importamos el modelo Categoria
 
