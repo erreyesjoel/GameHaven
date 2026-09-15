@@ -176,11 +176,11 @@ incluyendo el @import url de css */
   margin-bottom: 0.3rem;
 }
 
-.usuario-email {
+.usuario-nombre {
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   opacity: 0.85;
-  word-break: break-all;
+  white-space: nowrap;
   margin-bottom: 0.2rem;
 }
 
@@ -473,6 +473,8 @@ ya que el header es vertical a la izquierda */
 }
 
 input[type=text],
+input[type=email],
+input[type=password],
 input[type=number],
 input[type=date],
 input[type=url],

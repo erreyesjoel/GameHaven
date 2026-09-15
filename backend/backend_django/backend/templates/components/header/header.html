@@ -14,7 +14,9 @@
     <!-- Acciones de usuario y logout abajo del todo -->
     <div class="usuario-acciones-container">
         <div class="usuario-info">
-            <span class="usuario-email">{{ user.email }}</span>
+            <span class="usuario-nombre" title="{{ user.get_full_name|default:user.username }}">
+                {{ user.get_full_name|default:user.username }}
+            </span>
             <span class="usuario-rol">
                 {% if user.rol == "ADMIN" %}
                     Administrador
