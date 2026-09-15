@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404 # importamos render para renderizar templates y redirect para redirigir, get_object_or_404 para obtener objetos o devolver 404
 from plataformas.models import Plataforma # importamos el modelo de app plataformas
 from django.contrib.auth.decorators import login_required # para proteger las vistas
+from usuarios.decorators import admin_required
 import re
 
 # Create your views here.
 # renderizar la pagina plataformas.html, es decir, el html donde se muestran
-@login_required
+@admin_required
 def mostrarPlataformas(request):
     plataformas = Plataforma.objects.all() # obtener TODAS las plataformas
     return render(request, 'admin/plataformas.html', {'plataformas': plataformas, 'active_page': 'plataformas'})
 
-@login_required
+@admin_required
 # def para crear plataforma
 # el id no es necesario porque se crea una nueva plataforma
 # pedimos el tipo de plataforma (PC, PlayStation, Xbox, Nintendo)
@@ -31,7 +32,7 @@ def crearPlataforma(request):
         return redirect('mostrar_plataformas')
     return render(request, 'admin/crearPlataforma.html')
 
-@login_required
+@admin_required
 # def para editar plataforma
 def editarPlataforma(request, plataforma_id):
     plataforma = get_object_or_404(Plataforma, id=plataforma_id)
@@ -55,7 +56,7 @@ def editarPlataforma(request, plataforma_id):
         'error': error
     })
 
-@login_required
+@admin_required
 # def para eliminar una plataforma
 def eliminarPlataforma(request, plataforma_id):
     plataforma = get_object_or_404(Plataforma, id=plataforma_id)

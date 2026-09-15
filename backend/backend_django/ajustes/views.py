@@ -4,21 +4,22 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from usuarios.decorators import admin_required
 
 # Create your views here.
 # def para mostrar la pagina de ajustes
 # pyrefly: ignore [missing-signature]
-@login_required
+@admin_required
 def mostrar_ajustes(request):
     return render(request, 'admin/ajustes.html', {'active_page': 'ajustes'})
 
 
-@login_required
+@admin_required
 def seguridad(request):
     return render(request, 'admin/seguridad.html', {'active_page': 'ajustes'})
 
 
-@login_required
+@admin_required
 def perfil(request):
     usuario = request.user
 
@@ -35,7 +36,7 @@ def perfil(request):
     })
 
 
-@login_required
+@admin_required
 def cambiar_password(request):
     form = PasswordChangeForm(request.user, request.POST or None)
 

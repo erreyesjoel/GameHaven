@@ -5,23 +5,24 @@ from plataformas.models import Plataforma # importamos el modelo
 # pyrefly: ignore [missing-import]
 from django.contrib.auth.decorators import login_required # para proteger las vistas
 from categorias.models import Categoria # importamos el modelo Categoria
+from usuarios.decorators import admin_required
 
 # Create your views here.
 # renderizar juegos.html y funcion para devolver los juegos
-@login_required
+@admin_required
 def mostrarJuegos(request):
     juegos = Juego.objects.all() # obtenemos todos los juegos
     plataformas = Plataforma.objects.all() # obtenemos todas las plataformas
     return render(request, 'admin/juegos.html', {'juegos': juegos, 'plataformas': plataformas, 'active_page': 'juegos'})
 
-@login_required
+@admin_required
 # funcion (def) para eliminar un juego 
 def eliminarJuego(request, juego_id):
     juego = get_object_or_404(Juego, id=juego_id) # obtenemos el juego por su id
     juego.delete() # eliminamos el juego
     return redirect('mostrar_juegos') # redirigimos a la lista de juegos
 
-@login_required
+@admin_required
 # def para editar juego
 def editarJuego(request, juego_id):
     juego = get_object_or_404(Juego, id=juego_id) # buscamos juego por id
@@ -68,7 +69,7 @@ def editarJuego(request, juego_id):
     }) # renderizamos el template de editar juego
 
 # def para crear juego
-@login_required
+@admin_required
 def crearJuego(request):
     if request.method == 'POST':
         # obtenemos los datos del formulario
