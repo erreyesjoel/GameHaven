@@ -1,0 +1,14 @@
+{% include 'components/header/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="main-content">
+  <div class="container-formulario">
+    <div class="juego-formulario">
+      <div class="juego-formulario-header">
+        <h1>Seguridad</h1>
+      </div>
+      <p>Gestiona la seguridad de tu cuenta.</p>
+      <a href="{% url 'cambiar_password' %}" class="btn-enviar-formulario">Cambiar contraseña</a>
+    </div>
+  </div>
+</div>
