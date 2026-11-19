@@ -1,33 +1,39 @@
 # GameHaven
 
-## 🎯 Objetivo del Proyecto
+## 🎯 Project Overview
 
-GameHaven es un proyecto educativo compuesto por **dos aplicaciones web** que trabajan juntas:
+GameHaven is an educational full-stack web project focused on video games. It aims to provide a platform where video game enthusiasts can discover, explore, purchase, and reserve games, as well as manage their personal gaming interests.
 
-1. **Aplicación interna de gestión**  
-   Construida con **Django**, usando **templates HTML, Sass y JavaScript**.  
-   Está pensada para administrar datos, gestionar contenido y controlar la plataforma desde un entorno interno.
+Users will be able to browse a catalog of video games, explore detailed information, check availability, purchase or reserve titles, and keep track of their gaming preferences.
 
-2. **Aplicación para el cliente**  
-   Desarrollada con **Angular**, que consume una **API REST creada con Django REST Framework (DRF)**.  
-   Es la interfaz pública donde los usuarios finales interactúan con la plataforma.
+The project consists of **two web applications** that work together:
 
-El objetivo es aprender a integrar ambas capas, practicar arquitectura web completa y aplicar buenas prácticas de desarrollo.
+1. **Internal Management Application**  
+   Built with **Django**, using **HTML templates, Sass, and JavaScript**.  
+   It is designed to manage the platform's catalog, products, orders, reservations, and other administrative operations through an internal management environment.
+
+2. **Client-Facing Application**  
+   Developed with **Next.js and TypeScript**, consuming a **REST API built with Django REST Framework (DRF)**.  
+   It serves as the public interface where users can browse games, interact with the platform, and manage their purchases and reservations.
+
+The goal is to build a complete gaming platform while learning how to integrate frontend and backend applications, design REST APIs, and apply full-stack development best practices.
 
 ---
 
-## 🖥️ Frontend (Aplicación para el Cliente)
+## 🖥️ Frontend (Client Application)
 
-### Tecnologías  
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+### Technologies
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
 ---
 
-## ⚙️ Backend (API + Gestión Interna)
+## ⚙️ Backend (API + Internal Management)
 
-### Tecnologías  
+### Technologies
+
 ![Python](https://img.shields.io/badge/Python-3.12.3-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-5.2.3-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![Django REST Framework](https://img.shields.io/badge/DRF-FF1709?style=for-the-badge&logo=django&logoColor=white)
@@ -38,10 +44,10 @@ El objetivo es aprender a integrar ambas capas, practicar arquitectura web compl
 
 ---
 
-## 🗄️ Base de Datos
+## 🗄️ Database
 
-### Tecnología  
+### Technology
+
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ---
-
