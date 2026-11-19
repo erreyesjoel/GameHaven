@@ -17,6 +17,7 @@
         <label for="password"><i class="fa-solid fa-lock"></i></label>
         <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
       </div>
+      <a href="{% url 'password_reset' %}" class="password-reset-link">¿Has olvidado tu contraseña?</a>
     <!-- Mostrar mensajes de error de Django messages -->
     {% if messages %}
       {% for message in messages %}

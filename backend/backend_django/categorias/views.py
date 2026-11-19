@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Categoria
+from usuarios.decorators import admin_required
 
 # login required para todas las vistas
-@login_required(login_url='/')
+@admin_required
 def listar_categorias(request):
     categorias = Categoria.objects.all()
     return render(request, 'admin/categorias.html', {
@@ -11,7 +12,7 @@ def listar_categorias(request):
         'active_page': 'categorias'
     })
 
-@login_required(login_url='/')
+@admin_required
 def crear_categoria(request):
     error = None
     if request.method == 'POST':
@@ -29,7 +30,7 @@ def crear_categoria(request):
         'active_page': 'categorias'
     })
 
-@login_required(login_url='/')
+@admin_required
 def editar_categoria(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     error = None
@@ -50,7 +51,7 @@ def editar_categoria(request, categoria_id):
         'active_page': 'categorias'
     })
 
-@login_required(login_url='/')
+@admin_required
 def eliminar_categoria(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     categoria.delete()

@@ -1,0 +1,8 @@
+{% include 'components/header/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="main-content">
+    <h1>Ajustes</h1>
+    <a href="{% url 'perfil_admin' %}" class="btn-enviar-formulario">Perfil</a>
+    <a href="{% url 'seguridad_admin' %}" class="btn-enviar-formulario">Seguridad</a>
+</div>

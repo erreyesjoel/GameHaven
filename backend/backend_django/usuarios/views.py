@@ -8,15 +8,16 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str
 from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth import login
+from usuarios.decorators import admin_required
 
 # Create your views here.
 # def para devolver los usuarios de la base de datos
-@login_required
+@admin_required
 def listar_usuarios(request):
     lista_usuarios = ModeloUsuarioModificado.objects.all().order_by('-id')
     return render(request, 'admin/usuarios.html', {'lista_usuarios': lista_usuarios, 'active_page': 'usuarios'})
 
-@login_required
+@admin_required
 def crear_usuario(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -47,7 +48,7 @@ def crear_usuario(request):
         'active_page': 'usuarios'
     })
 
-@login_required
+@admin_required
 def editar_usuario(request, usuario_id):
     usuario = get_object_or_404(ModeloUsuarioModificado, id=usuario_id)
     if request.method == 'POST':
@@ -65,7 +66,7 @@ def editar_usuario(request, usuario_id):
         'active_page': 'usuarios'
     })
 
-@login_required
+@admin_required
 def desactivar_usuario(request, usuario_id):
     usuario = get_object_or_404(ModeloUsuarioModificado, id=usuario_id)
     usuario.is_active = False

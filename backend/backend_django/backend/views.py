@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login  # para autenticar y loguear
 from django.shortcuts import render, redirect  # importante para renderizar plantillas y redirigir
 from django.contrib.auth import logout  # para cerrar sesion
 from django.contrib import messages  # para mostrar mensajes flash en Django
+from usuarios.decorators import admin_required
 
 # def para renderizar el template de login
 def login_template(request):
@@ -51,7 +52,7 @@ def login_template(request):
 
 
 # def para logout en django template
-@login_required(login_url='/')  # redirige al login si no está autenticado, por eso @login_required
+@admin_required  # redirige al login si no está autenticado, por eso ahora @admin_required en vez de @login_required
 def logout_view(request):
     logout(request)  # cerrar sesion
     return redirect('login_template')  # redirigir al login
