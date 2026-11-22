@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'categorias', # mi app startapp categorias (python manage.py startapp categorias)
     'juegos', # mi app startapp juegos (python manage.py startapp juegos)
     'seeders', # mi app startapp seeders (python manage.py startapp seeders)
+    'dashboard', # mi app startapp dashboard (python manage.py startapp dashboard)
 ]
 
 MIDDLEWARE = [
